@@ -377,8 +377,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Pose-estimation/" itemprop="url" rel="index">
-                    <span itemprop="name">Pose estimation</span>
+                  <a href="/categories/Pose-Estimation/" itemprop="url" rel="index">
+                    <span itemprop="name">Pose Estimation</span>
                   </a>
                 </span>
 
@@ -425,28 +425,62 @@
 
       
         
-          <!-- TOC -->
+          
+            <a id="more"></a>
+<p>人体姿态估计可以分为两类方法, 分别是:</p>
 <ul>
-<li><a href="#1-rmpe-regional-multi-person-pose-estimation">1. RMPE: Regional Multi-Person Pose Estimation</a><ul>
-<li><a href="#11-methods">1.1. Methods</a><ul>
-<li><a href="#111-symmetric-stn">1.1.1. Symmetric STN</a></li>
-<li><a href="#112-parallel-sppe">1.1.2. Parallel SPPE</a></li>
-<li><a href="#113-parametric-pose-nms">1.1.3. Parametric Pose NMS</a></li>
-<li><a href="#114-pose-guided-proposals-generator">1.1.4. Pose-guided Proposals Generator</a></li>
+<li><strong>Top-down</strong>: (two-step framework) 先使用人体检测算法检测人体, 然后逐人体估计关键点 </li>
 </ul>
+<p>缺点: 该方法严重依赖人体检测算法 bounding box 的准确性.</p>
+<ul>
+<li><strong>Bottom-up</strong>: (part-based framework) 首先检测人体部件(关键点), 然后集成这些人体关键点组成人体姿态. </li>
+</ul>
+<p>缺点: 拥挤人群难以估计准确; 此外, 仅仅利用二级信息(关键点),失去从全局姿态中捕捉身体部件的能力.</p>
+<h1 id="RMPE-Regional-Multi-Person-Pose-Estimation"><a href="#RMPE-Regional-Multi-Person-Pose-Estimation" class="headerlink" title="RMPE: Regional Multi-Person Pose Estimation"></a>RMPE: Regional Multi-Person Pose Estimation</h1><p><img src="/2018/12/28/Multi-person-pose-estimation/2018-12-28-16-50-57.png" alt="Pipline of RMPE"></p>
+<p>本文试图在人体 bounding box 不准确的情况下精确估计人体姿态. \<br>人体检测算法: Faster-RCNN, YOLO-v3 et.al. \<br>姿态估计算法: SPPE Stacked Hourglass model </p>
+<p>由于 SPPE 容易受 bbox 准确性的影响, 文章提出了 RMPE 算法.</p>
+<p><strong>创新点:</strong></p>
+<ul>
+<li>SSTN: (symmetric STN), 在 bbox 不准确的情况下帮助 SPPE 提取高精度的单人区域;</li>
+<li>parallel SPPE branch</li>
+<li>parametric pose NMS </li>
+<li>PGPG (pose-guided human proposal generator)</li>
+</ul>
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><p><img src="/2018/12/28/Multi-person-pose-estimation/2018-12-28-16-57-01.png" alt=""></p>
+<h3 id="Symmetric-STN"><a href="#Symmetric-STN" class="headerlink" title="Symmetric STN"></a>Symmetric STN</h3><ul>
+<li>STN: extract high quality dominant human proposals</li>
+<li>SDTN: remap the estimated human pose back to the original image coordinate</li>
+</ul>
+<h3 id="Parallel-SPPE"><a href="#Parallel-SPPE" class="headerlink" title="Parallel SPPE"></a>Parallel SPPE</h3><p>Parallel SPPE 只存在于训练过程. parallel SPPE 和 SPPE 共享 STN, 但没有 SDTN. parallel SPPE 的人体 pose label 经过了中心化. 即 SPPE 分支的输出直接和 center-located ground truth poses labels 进行比较.</p>
+<p>在训练过程中, 通过冻结 parallel SPPE 的所有层, 该分支所有的层固定, 目的在于回传 center-located pose errors 到 STN 模块.如果 STN 提取的 pose 并不是 center-located, pallel SPPE 将回传更大的误差. 通过这种方式, STN 将聚焦于正确的区域并提取高质量的人体区域.</p>
+<p>测试过程中, parallel SPPE 分支被砍掉.</p>
+<p><strong>讨论</strong></p>
+<p>parallel SPPE 被当成是正则化策略, 帮助避免了局部极小值, 即该种情况下 STN 并没有将提取的人体变换到中间区域. </p>
+<h3 id="Parametric-Pose-NMS"><a href="#Parametric-Pose-NMS" class="headerlink" title="Parametric Pose NMS"></a>Parametric Pose NMS</h3><ul>
+<li><p>剔除准则:\<br><img src="/2018/12/28/Multi-person-pose-estimation/2018-12-28-17-48-13.png" alt=""></p>
 </li>
-<li><a href="#12-experiments">1.2. Experiments</a></li>
-</ul>
+<li><p>Pose Distance\<br><img src="/2018/12/28/Multi-person-pose-estimation/2018-12-28-18-04-57.png" alt=""></p>
+<p>其中, \<br><img src="/2018/12/28/Multi-person-pose-estimation/2018-12-28-19-13-25.png" alt=""><br><img src="/2018/12/28/Multi-person-pose-estimation/2018-12-28-19-13-47.png" alt=""></p>
 </li>
 </ul>
-<!-- /TOC -->
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/28/Multi-person-pose-estimation/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<h3 id="Pose-guided-Proposals-Generator"><a href="#Pose-guided-Proposals-Generator" class="headerlink" title="Pose-guided Proposals Generator"></a>Pose-guided Proposals Generator</h3><p><strong>Insight</strong>: 由于姿态差异, 检测边框和标注边框的相关偏差分布会发生变化.</p>
+<p><strong>Implementation</strong>: 将学习 $P(\delta B|P)$ 转化为学习 $P(\delta B|atom(P))$</p>
+<ul>
+<li>对齐所有姿态以保证躯干部分具有相同的长度;</li>
+<li>使用 k-means 聚类对齐后的姿态;</li>
+<li>计算 atomic poses 的聚类中心;</li>
+<li>每个人体实例共享相同的 atomic pose $a$, 进一步计算标注 bbox 和检测 bbox 的偏差;</li>
+<li>归一化偏差;</li>
+<li>使用高斯混合分布拟合数据, 不同的 atomic pose 具有不同的高斯混合参数.</li>
+</ul>
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><ul>
+<li>检测 bbox 的 height, width 各扩展 30% 以保证整个人体区域被提取到;</li>
+<li>单人姿态估计器: stacked hourglass model</li>
+<li>STN 采用 ResNet-18 (<font color="#ff0000">这个网络太大了!</font>)</li>
+<li>parallel SPPE: 4-stack hourglass network.<br><img src="/2018/12/28/Multi-person-pose-estimation/2018-12-28-20-03-33.png" alt=""></li>
+</ul>
+
+          
         
       
     </div>
