@@ -566,8 +566,8 @@
     </div>
 
   
-
-
+  
+  
 
         </div>
         
@@ -860,44 +860,25 @@
 
 
 
-
-<!-- LOCAL: You can save these files to your site and update links -->
     
-        
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
     
-<!-- END LOCAL -->
-
     
-
     
-      <script type="text/javascript">
-      function renderGitment(){
-        var gitment = new Gitmint({
-            id: window.location.pathname, 
-            owner: 'wuterry',
-            repo: 'wuterry.github.io',
-            
-            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-            
-            oauth: {
-            
-            
-                client_secret: 'b1941215a8d5316ba62abff27b3cf01f42b116bf',
-            
-                client_id: 'e3c4523ab501b5864760'
-            }});
-        gitment.render('gitment-container');
-      }
-
-      
-      renderGitment();
-      
-      </script>
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
     
-
-
+        <script type="text/javascript">
+            var gitment = new Gitment({
+                    id: window.location.pathname, 
+                    owner: '',
+                    repo: '',
+                    oauth: {
+                        client_id: 'e3c4523ab501b5864760',
+                        client_secret: 'b1941215a8d5316ba62abff27b3cf01f42b116bf',
+                    }});
+            gitment.render('gitment-container');
+        </script>
+    
 
 
 
