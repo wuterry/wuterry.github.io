@@ -323,6 +323,161 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/29/Imbalance-Learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Terry Wu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Terry Wu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/29/Imbalance-Learning/" itemprop="url">Imbalance Learning</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-29T08:49:59+08:00">
+                2018-12-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/29/Imbalance-Learning/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2018/12/29/Imbalance-Learning/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Data-based"><a href="#Data-based" class="headerlink" title="Data-based"></a>Data-based</h1><h2 id="sampling-methods"><a href="#sampling-methods" class="headerlink" title="sampling methods"></a>sampling methods</h2><h3 id="欠采样"><a href="#欠采样" class="headerlink" title="欠采样:"></a>欠采样:</h3><h3 id="过采样-SMOTE"><a href="#过采样-SMOTE" class="headerlink" title="过采样: SMOTE"></a>过采样: SMOTE</h3><h1 id="Algorithm-based"><a href="#Algorithm-based" class="headerlink" title="Algorithm-based"></a>Algorithm-based</h1><h2 id="Cost-Sensitive-Learning"><a href="#Cost-Sensitive-Learning" class="headerlink" title="Cost Sensitive Learning"></a>Cost Sensitive Learning</h2><h2 id="Theshold-adjustment"><a href="#Theshold-adjustment" class="headerlink" title="Theshold adjustment"></a>Theshold adjustment</h2><p>Generally, predicted label is positive when the score $s &gt; 0.5$. It’s reasonable when $num_pos:num_neg = 1: 1$. However, the score should be adjust with the change of ratio between the number of positive and negtive samples.</p>
+<p>We define $m^+$ is the number of positive samples, and $m^-$ is the number of negtive samples. The decision rule should be satified with</p>
+<script type="math/tex; mode=display">
+\frac{s}{1-s}=\frac{m^+}{m^-}</script><p>In implementation, we choose the optimal threshold by ROC curve.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/28/Multi-person-pose-estimation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1004,6 +1159,10 @@
 </ul>
 </li>
 <li><a href="#mxnet">MXNet</a><ul>
+<li><a href="#api">API</a><ul>
+<li><a href="#reshape">reshape</a></li>
+</ul>
+</li>
 <li><a href="#debug">Debug</a></li>
 </ul>
 </li>
@@ -1884,7 +2043,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1895,7 +2054,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1906,7 +2065,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -1943,7 +2102,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -2110,6 +2269,19 @@
 
 
 
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
 
 
 
