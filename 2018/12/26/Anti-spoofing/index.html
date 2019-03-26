@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="活体检测总结     1. Dataset 2. Methods 2.1. Introduction 2.2. Performance 2.3. Discriminative Representation Combinations for Accurate Face Spoofing Detection (2018) 2.3.1. 思路 2.3.2. 方法分析 2.3.3. 改进方向   2.4.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Summery of Anti-Spoofing">
+<meta property="og:url" content="http://yoursite.com/2018/12/26/Anti-spoofing/index.html">
+<meta property="og:site_name" content="Terry Wu">
+<meta property="og:description" content="活体检测总结     1. Dataset 2. Methods 2.1. Introduction 2.2. Performance 2.3. Discriminative Representation Combinations for Accurate Face Spoofing Detection (2018) 2.3.1. 思路 2.3.2. 方法分析 2.3.3. 改进方向   2.4.">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/12/26/Anti-spoofing/2019-01-11-15-30-40.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/26/Anti-spoofing/2019-01-11-15-33-04.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/26/Anti-spoofing/2019-01-11-15-33-22.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/26/Anti-spoofing/2019-01-10-23-06-41.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/26/Anti-spoofing/2019-01-10-23-08-17.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/26/Anti-spoofing/2019-01-10-23-18-07.png">
+<meta property="og:updated_time" content="2019-03-26T02:22:10.148Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Summery of Anti-Spoofing">
+<meta name="twitter:description" content="活体检测总结     1. Dataset 2. Methods 2.1. Introduction 2.2. Performance 2.3. Discriminative Representation Combinations for Accurate Face Spoofing Detection (2018) 2.3.1. 思路 2.3.2. 方法分析 2.3.3. 改进方向   2.4.">
+<meta name="twitter:image" content="http://yoursite.com/2018/12/26/Anti-spoofing/2019-01-11-15-30-40.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/26/Anti-spoofing/"/>
+
+
+
+
+
+  <title>Summery of Anti-Spoofing | Terry Wu</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Terry Wu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Computer Vision, Deep Learning</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/26/Anti-spoofing/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Terry Wu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Terry Wu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Summery of Anti-Spoofing</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-26T10:45:09+08:00">
+                2018-12-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Face-Recognition/" itemprop="url" rel="index">
+                    <span itemprop="name">Face Recognition</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/26/Anti-spoofing/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2018/12/26/Anti-spoofing/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <center><font face="微软雅黑" size="6">活体检测总结 </font></center>
+
+<!-- TOC -->
+<ul>
+<li><a href="#1-dataset">1. Dataset</a></li>
+<li><a href="#2-methods">2. Methods</a><ul>
+<li><a href="#21-introduction">2.1. Introduction</a></li>
+<li><a href="#22-performance">2.2. Performance</a></li>
+<li><a href="#23-discriminative-representation-combinations-for-accurate-face-spoofing-detection-2018">2.3. Discriminative Representation Combinations for Accurate Face Spoofing Detection (2018)</a><ul>
+<li><a href="#231-思路">2.3.1. 思路</a></li>
+<li><a href="#232-方法分析">2.3.2. 方法分析</a></li>
+<li><a href="#233-改进方向">2.3.3. 改进方向</a></li>
+</ul>
+</li>
+<li><a href="#24-face-presentation-attack-detection-in-learned-color-liked-space-2018">2.4. Face Presentation Attack Detection in Learned Color-liked Space (2018)</a></li>
+<li><a href="#25-learning-deep-models-for-face-anti-spoofing-binary-or-auxiliary-supervision-2018cvpr">2.5. Learning Deep Models for Face Anti-Spoofing: Binary or Auxiliary Supervision (2018CVPR)</a></li>
+</ul>
+</li>
+<li><a href="#3-schemes">3. Schemes</a><ul>
+<li><a href="#31-scheme-1">3.1. Scheme 1</a></li>
+<li><a href="#32-scheme-2">3.2. Scheme 2</a></li>
+<li><a href="#33-scheme-3">3.3. Scheme 3</a></li>
+</ul>
+</li>
+<li><a href="#4-open-resources">4. Open Resources</a><ul>
+<li><a href="#41-open-platform">4.1. Open platform</a></li>
+<li><a href="#42-codes">4.2. Codes</a></li>
+<li><a href="#43-webpages">4.3. Webpages</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<p>人脸识别欺骗方式主要包含如下三种:</p>
+<ul>
+<li>print attack</li>
+<li>replay/video attack</li>
+<li>3D mask attack</li>
+</ul>
+<h1 id="1-Dataset"><a href="#1-Dataset" class="headerlink" title="1. Dataset"></a>1. Dataset</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th style="text-align:center"># subj. / # sess.</th>
+<th>Links</th>
+<th>Year</th>
+<th>Spoof attacks</th>
+<th>Publish Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>NUAA</strong></td>
+<td style="text-align:center">15/3</td>
+<td><a href="http://parnec.nuaa.edu.cn/xtan/data/nuaaimposterdb.html" target="_blank" rel="noopener">Link</a></td>
+<td>2010</td>
+<td>Print</td>
+<td>2010</td>
+</tr>
+<tr>
+<td><strong>CASIA-MFSD</strong></td>
+<td style="text-align:center">50/3</td>
+<td><a href="http://biometrics.cse.msu.edu/Publications/Databases/MSUMobileFaceSpoofing/" target="_blank" rel="noopener">Link</a></td>
+<td>2012</td>
+<td>Print, Replay</td>
+<td>2012</td>
+</tr>
+<tr>
+<td><strong>Replay-Attack</strong></td>
+<td style="text-align:center">50/1</td>
+<td><a href="https://www.idiap.ch/dataset/replayattack" target="_blank" rel="noopener">Link</a></td>
+<td>2012</td>
+<td>Print, 2 Replay</td>
+<td>2012</td>
+</tr>
+<tr>
+<td><strong>MSU-MFSD</strong></td>
+<td style="text-align:center">35/1</td>
+<td><a href="https://www.cse.msu.edu/rgroups/biometrics/Publications/Databases/MSUMobileFaceSpoofing/index.htm" target="_blank" rel="noopener">Link</a></td>
+<td>2015</td>
+<td>Print, 2 Replay</td>
+<td>2015</td>
+</tr>
+<tr>
+<td><strong>MSU-USSA</strong></td>
+<td style="text-align:center">1140/1</td>
+<td><a href="http://biometrics.cse.msu.edu/Publications/Databases/MSU_USSA/" target="_blank" rel="noopener">Link</a></td>
+<td>2016</td>
+<td>2 Print, 6 Replay</td>
+<td>2016</td>
+</tr>
+<tr>
+<td><strong>Oulu-NPU</strong></td>
+<td style="text-align:center">55/3</td>
+<td><a href="https://sites.google.com/site/oulunpudatabase/" target="_blank" rel="noopener">Link</a></td>
+<td>2017</td>
+<td>2 Print, 6 Replay</td>
+<td>2017</td>
+</tr>
+<tr>
+<td><strong>SiW</strong></td>
+<td style="text-align:center">165/4</td>
+<td><a href="http://cvlab.cse.msu.edu/spoof-in-the-wild-siw-face-anti-spoofing-database.html" target="_blank" rel="noopener">Link</a></td>
+<td>2018</td>
+<td>2 Print, 4 Replay</td>
+<td>2018</td>
+</tr>
+<tr>
+<td><strong>ROSE-Youtu</strong></td>
+<td style="text-align:center">25/*</td>
+<td><a href="http://rose1.ntu.edu.sg/Datasets/faceLivenessDetection.asp" target="_blank" rel="noopener">Link</a></td>
+<td>2018</td>
+<td>Print, Replay, Mask</td>
+<td>2018</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Details:</p>
+<ul>
+<li><strong>NUAA</strong>: 包含 12641 静态图片;</li>
+<li><strong>CASIA</strong>: 包含 50 个对象共 600 视频, 覆盖三种攻击方式 (photo, cut photo, video). 对于每个对象, 真实人脸和三种攻击方式捕获的人脸包含了三种不同图像质量的人脸 (低, 正常, 高);</li>
+<li><strong>Replay-Attack Dataset</strong>: 包含 50 个对象共 1300 视频. 对于每个对象, 有两种拍摄背景 (control and adverse), 三种攻击方式 (print, digital photo and video), 两种攻击形式 (fixed and hand-holding).</li>
+<li><strong>MSU_USSA</strong>: <a href="http://biometrics.cse.msu.edu/Publications/Databases/MSU_USSA/" target="_blank" rel="noopener">http://biometrics.cse.msu.edu/Publications/Databases/MSU_USSA/</a> </li>
+<li><strong>Oulu-NPU</strong>: 包含 4950 个真实和攻击视频. 采集设备包含 (Samsung Galaxy S6 edge, HTC Desire EYE, MEIZU X5, ASUS Zenfone Selfie, Sony XPERIA C5 Ultra Dual and OPPO N3).</li>
+<li><strong>SiW</strong>: 共 165 个对象的视频. 每个对象包含 8 个活体和 20 个欺骗视频. 一共 4478 个视频. 每个视频 30 fps, 持续 15 秒, 1080P HD. 活体视频包含了不同的距离, 姿态, 光照和表情.  欺骗视频包含了打印纸张和翻拍.</li>
+<li><strong>ROSE-Youtu</strong>: 包含 25 个对象, 共 4225 个视频 (3350 videos with 20 subjects publically available with 5.45GB in size). 每个对象包含 150~200 个视频片段, 每个片段约 10 秒. 数据来源: Hasee, HUAWEI, ipad 4, iphone 5s, ZTE. 人脸到相机距离 30~50 cm.</li>
+</ul>
+<h1 id="2-Methods"><a href="#2-Methods" class="headerlink" title="2. Methods"></a>2. Methods</h1><h2 id="2-1-Introduction"><a href="#2-1-Introduction" class="headerlink" title="2.1. Introduction"></a>2.1. Introduction</h2><blockquote>
+<p><strong>Texture-based</strong></p>
+<ul>
+<li>hand-crafted features: LBP, HoG, SIFT, SURF et.al. </li>
+<li>classifers: SVM or LDA et.al.</li>
+<li>overcome illmulation variation: using HSV and YCbCr domain color space, Fouriers spectrum.</li>
+<li><strong>Deficiency</strong>: easily fooled by HD screens</li>
+</ul>
+<p><strong>Temporal-based</strong></p>
+<ul>
+<li>temporal cues: eye-blinking, motion of mouth and lip<ul>
+<li>cons: only for paper attack.</li>
+</ul>
+</li>
+<li>frame concatanation: Haralick features, motion mag, LSTM-CNN<ul>
+<li>birnary classfication, hard to cross-database testing</li>
+</ul>
+</li>
+</ul>
+<p><strong>Motion-based</strong></p>
+<ul>
+<li>eyes blinking</li>
+<li>analyse motion correlation efficient between face region and background</li>
+<li>LBP-TOP, LDP-TOP, DoG</li>
+<li>DMD(dynamic mode decomposition)</li>
+<li><strong>Deficiency</strong>: easily fooled by replayed video</li>
+</ul>
+<p><strong>Hardware-basd</strong></p>
+<ul>
+<li>multi-spectral cameras, depth cameras, light-field cameras.</li>
+<li><strong>Deficiency</strong>: devices limited useage, NIR and depth camera are not stable enough in sunlight.</li>
+</ul>
+<p><strong>rPPG</strong></p>
+<ul>
+<li>eliminate the specular reflection by color difference, and estimate two orthogonal chrominance signals</li>
+<li>estimate rPPG from 3 face regions and 2 non-face regions</li>
+</ul>
+</blockquote>
+<p><strong>趋势</strong>: <font color="blue" size="4">多模态融合</font></p>
+<h2 id="2-2-Performance"><a href="#2-2-Performance" class="headerlink" title="2.2. Performance"></a>2.2. Performance</h2><center>文献名称缩写</center>
+
+<p><img src="/2018/12/26/Anti-spoofing/2019-01-11-15-30-40.png" alt="Papers" title="Abbr. of Papers"></p>
+<center>ERR & HTER</center>
+
+<p><img src="/2018/12/26/Anti-spoofing/2019-01-11-15-33-04.png" alt="EER-HTER" title="ERR and HTER"></p>
+<center>APCER, BPCER & ACER</center>
+
+<p><img src="/2018/12/26/Anti-spoofing/2019-01-11-15-33-22.png" alt="ACER" title="ACER"></p>
+<h2 id="2-3-Discriminative-Representation-Combinations-for-Accurate-Face-Spoofing-Detection-2018"><a href="#2-3-Discriminative-Representation-Combinations-for-Accurate-Face-Spoofing-Detection-2018" class="headerlink" title="2.3. Discriminative Representation Combinations for Accurate Face Spoofing Detection (2018)"></a>2.3. Discriminative Representation Combinations for Accurate Face Spoofing Detection (2018)</h2><p><img src="/2018/12/26/Anti-spoofing/2019-01-10-23-06-41.png" alt="SSD+SPMT"></p>
+<blockquote>
+<p><strong>关键词</strong>:<br>SSD: Single Shot MultiBox Detector<br>SPMT: 空间金字塔编码的微纹理特征 (spatial pyramid coding micro-texture)<br>TFBD: 模板人脸匹配的深度特征 (template face matched binocular depth)</p>
+</blockquote>
+<h3 id="2-3-1-思路"><a href="#2-3-1-思路" class="headerlink" title="2.3.1. 思路"></a>2.3.1. 思路</h3><ol>
+<li>全画幅图像 → SSD, 判别容易样本</li>
+<li>难区分样本 → 提取 SPMT 特征, 进一步使用 SVM 鉴别</li>
+<li>双目图像对 → 提取 TFBD 特征. 需数轮反复迭代.</li>
+</ol>
+<h3 id="2-3-2-方法分析"><a href="#2-3-2-方法分析" class="headerlink" title="2.3.2. 方法分析"></a>2.3.2. 方法分析</h3><p>整个方法采用级联思路, 先经过 SSD 网络, 后续对难样本使用手工特征分类. 从结果上看, 该方法有效的根本原因在于 SSD. SPMT 和 TFBD 手工特征计算量大, 方法复杂, 且提升性能有限.</p>
+<blockquote>
+<p>SSD 能够有效区分活体和欺诈样本的原因有二:</p>
+<ul>
+<li>全画幅输入, 提供了拍摄背景信息;</li>
+<li>SSD 深层和浅层特征融合, 有效提取了<strong>纹理特征</strong>和<strong>结构信息</strong>;</li>
+</ul>
+</blockquote>
+<h3 id="2-3-3-改进方向"><a href="#2-3-3-改进方向" class="headerlink" title="2.3.3. 改进方向"></a>2.3.3. 改进方向</h3><ul>
+<li>是否有必要全保留 SSD 整个检测结构?<br>(1) 我们已经有了 MTCNN 做人脸检测, SSD 再检测一遍人脸略显多余;<br>(2) SSD 需要回归人脸边框, 增加了网络优化难度. 当然, 从多任务角度来讲, 也可能起帮助作用 ? 待验证.<br>(3) SSD 的输入图片需要缩放到固定尺寸, 容易损失人脸的微纹理信息.</li>
+<li>是否有必要全画幅输入?<br>SSD 有效的原因之一是利用人脸的背景信息, 全画幅的背景信息是否多余? 能够在 MTCNN 检测人脸的基础上向外多扩展一些边框以提供足够的边缘信息.</li>
+</ul>
+<h2 id="2-4-Face-Presentation-Attack-Detection-in-Learned-Color-liked-Space-2018"><a href="#2-4-Face-Presentation-Attack-Detection-in-Learned-Color-liked-Space-2018" class="headerlink" title="2.4. Face Presentation Attack Detection in Learned Color-liked Space (2018)"></a>2.4. Face Presentation Attack Detection in Learned Color-liked Space (2018)</h2><p><img src="/2018/12/26/Anti-spoofing/2019-01-10-23-08-17.png" alt=""><br>本文一改传统方法在固定的颜色空间 (RGB, HSV, YCbCr) 提取特征然后分类, 通过设计　end-to-end 的网络学习便于区分活体与非活体的颜色空间. 提出的网络包含一个色彩空间生成器和一个特征提取器. 训练的损失函数采用了 Triplet Loss.</p>
+<p>有两个风险: 一是生成器结构较大, 实时性难保证; 二是 Triplet Loss 相关损失函数难训练, 调参难度高.</p>
+<h2 id="2-5-Learning-Deep-Models-for-Face-Anti-Spoofing-Binary-or-Auxiliary-Supervision-2018CVPR"><a href="#2-5-Learning-Deep-Models-for-Face-Anti-Spoofing-Binary-or-Auxiliary-Supervision-2018CVPR" class="headerlink" title="2.5. Learning Deep Models for Face Anti-Spoofing: Binary or Auxiliary Supervision (2018CVPR)"></a>2.5. Learning Deep Models for Face Anti-Spoofing: Binary or Auxiliary Supervision (2018CVPR)</h2><p><img src="/2018/12/26/Anti-spoofing/2019-01-10-23-18-07.png" alt="CNN+RNN"></p>
+<p>提出的 CNN-RNN 模型一方面使用 pixel-wise 估计人脸深度信息, 另一方面利用时序信息估计 rPPG 信号. 最后, 融合 Depth 和 rPPG 信息进行融合以区分活体和非活体. 文中 CNN-RNN 估计的 rPPG 信号对姿态, 光照和表情有很好的鲁棒性.</p>
+<p><strong>亮点</strong>:</p>
+<ul>
+<li>short-cut 连接融合了不同尺度信息;</li>
+<li>非刚性配准处理了估计 rPPG 中的运动和姿态问题.</li>
+</ul>
+<p><strong>困难</strong>:</p>
+<ul>
+<li>计算复杂度高</li>
+<li>未开源, 短期类无法保证研发时间, 风险大</li>
+</ul>
+<h1 id="3-Schemes"><a href="#3-Schemes" class="headerlink" title="3. Schemes"></a>3. Schemes</h1><p>算法性能上, 主要考虑 Spatial 和 Temporal 信息. 而空间上可以考虑的 2D 信息和 3D 深度信息.<br>数据来源上, 主要考虑获取数据源, 单目, 双目或多模态传感器.<br>模型部署上, 主要考虑算法在平台的运行效率.</p>
+<p>综上, 结合嵌入式平台算力, 有如下两种方案可供选择:</p>
+<h2 id="3-1-Scheme-1"><a href="#3-1-Scheme-1" class="headerlink" title="3.1. Scheme 1"></a>3.1. Scheme 1</h2><p>基于 SSD 检测框架, 将活体和非活体当成需要分类的目标进行预测;</p>
+<h2 id="3-2-Scheme-2"><a href="#3-2-Scheme-2" class="headerlink" title="3.2. Scheme 2"></a>3.2. Scheme 2</h2><p>重新设计分类网络:<br>(1) 数据: 检测人脸向外扩一定比例(如宽/高*0.5), 以提供足够背景信息;<br>(2) 网络: MobileNet/ShuffleNet/MobileFaceNet 等轻量网络作为 Backbone, 同时融合浅层和深层特征;<br>(3) 损失函数: Focal loss, Arcface loss 或难样本挖掘技术.</p>
+<h2 id="3-3-Scheme-3"><a href="#3-3-Scheme-3" class="headerlink" title="3.3. Scheme 3"></a>3.3. Scheme 3</h2><p>人脸活体检测和人脸识别网络共享特征层, 构造为 Multi-task Learning 模型.</p>
+<h1 id="4-Open-Resources"><a href="#4-Open-Resources" class="headerlink" title="4. Open Resources"></a>4. Open Resources</h1><h2 id="4-1-Open-platform"><a href="#4-1-Open-platform" class="headerlink" title="4.1. Open platform"></a>4.1. Open platform</h2><ul>
+<li>ArcSoft: <a href="http://ai.arcsoft.com.cn/product/liveness_detection.html" target="_blank" rel="noopener">http://ai.arcsoft.com.cn/product/liveness_detection.html</a></li>
+<li>Baidu: <a href="https://ai.baidu.com/tech/face/faceliveness" target="_blank" rel="noopener">https://ai.baidu.com/tech/face/faceliveness</a></li>
+<li>华为云: <a href="https://support.huaweicloud.com/api-face/face_02_0007.html" target="_blank" rel="noopener">https://support.huaweicloud.com/api-face/face_02_0007.html</a></li>
+<li>Face++: <a href="https://www.faceplusplus.com/face-based-identification/" target="_blank" rel="noopener">https://www.faceplusplus.com/face-based-identification/</a></li>
+<li>平安云: <a href="https://yun.pingan.com/ssr/help/ai/Face/Live" target="_blank" rel="noopener">https://yun.pingan.com/ssr/help/ai/Face/Live</a></li>
+<li>阿里云: <a href="https://help.aliyun.com/document_detail/94323.html" target="_blank" rel="noopener">https://help.aliyun.com/document_detail/94323.html</a></li>
+<li>腾讯云: <a href="https://cloud.tencent.com/developer/article/1030097" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1030097</a></li>
+<li>美团云: <a href="https://www.mtyun.com/doc/api/ai/face/LivenessDetection" target="_blank" rel="noopener">https://www.mtyun.com/doc/api/ai/face/LivenessDetection</a></li>
+<li>科大讯飞: <a href="https://doc.xfyun.cn/rest_api/%E9%9D%99%E9%BB%98%E6%B4%BB%E4%BD%93%E6%A3%80%E6%B5%8B.html" target="_blank" rel="noopener">https://doc.xfyun.cn/rest_api/%E9%9D%99%E9%BB%98%E6%B4%BB%E4%BD%93%E6%A3%80%E6%B5%8B.html</a></li>
+<li>deepcam: <a href="https://www.deepcam.cn/index.php?a=lists&amp;catid=56" target="_blank" rel="noopener">https://www.deepcam.cn/index.php?a=lists&amp;catid=56</a></li>
+</ul>
+<h2 id="4-2-Codes"><a href="#4-2-Codes" class="headerlink" title="4.2. Codes"></a>4.2. Codes</h2><ul>
+<li><a href="https://github.com/ee09115/spoofing_detection" target="_blank" rel="noopener">https://github.com/ee09115/spoofing_detection</a></li>
+<li><a href="https://github.com/OeslleLucena/FASNet" target="_blank" rel="noopener">https://github.com/OeslleLucena/FASNet</a></li>
+<li><a href="https://github.com/kimna4/FaceSpoofingDetection" target="_blank" rel="noopener">hight light removal</a></li>
+<li><a href="https://github.com/JinghuiZhou/awesome_face_antispoofing" target="_blank" rel="noopener">https://github.com/JinghuiZhou/awesome_face_antispoofing</a></li>
+<li><a href="https://github.com/houliang428/CNN-for-face-anti-spoofing" target="_blank" rel="noopener">CNN-for-face-anti-spoofing</a></li>
+<li><a href="https://github.com/JinghuiZhou/awesome_face_antispoofing" target="_blank" rel="noopener">Single Shot Face Anti-spoofing</a></li>
+<li><a href="https://github.com/senliuy/FaceLivenessDetection" target="_blank" rel="noopener">https://github.com/senliuy/FaceLivenessDetection</a> (配合式)</li>
+</ul>
+<h2 id="4-3-Webpages"><a href="#4-3-Webpages" class="headerlink" title="4.3. Webpages"></a>4.3. Webpages</h2><ul>
+<li>BioID: <a href="https://www.bioid.com/liveness-detection/" target="_blank" rel="noopener">https://www.bioid.com/liveness-detection/</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/25401788" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/25401788</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1030097" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1030097</a></li>
+<li><a href="http://www.lvc.ele.puc-rio.br/projects/Face_PAD/home.php" target="_blank" rel="noopener">http://www.lvc.ele.puc-rio.br/projects/Face_PAD/home.php</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/30/Deformable-ConNet-v1-v2/" rel="next" title="Deformable ConNet V1 & V2 ">
+                <i class="fa fa-chevron-left"></i> Deformable ConNet V1 & V2 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/28/Multi-person-pose-estimation/" rel="prev" title="Multi Person Pose Estimation">
+                Multi Person Pose Estimation <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+  
+  
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Terry Wu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Dataset"><span class="nav-number">1.</span> <span class="nav-text">1. Dataset</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Methods"><span class="nav-number">2.</span> <span class="nav-text">2. Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-Introduction"><span class="nav-number">2.1.</span> <span class="nav-text">2.1. Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-Performance"><span class="nav-number">2.2.</span> <span class="nav-text">2.2. Performance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-Discriminative-Representation-Combinations-for-Accurate-Face-Spoofing-Detection-2018"><span class="nav-number">2.3.</span> <span class="nav-text">2.3. Discriminative Representation Combinations for Accurate Face Spoofing Detection (2018)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1-思路"><span class="nav-number">2.3.1.</span> <span class="nav-text">2.3.1. 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2-方法分析"><span class="nav-number">2.3.2.</span> <span class="nav-text">2.3.2. 方法分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-3-改进方向"><span class="nav-number">2.3.3.</span> <span class="nav-text">2.3.3. 改进方向</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-Face-Presentation-Attack-Detection-in-Learned-Color-liked-Space-2018"><span class="nav-number">2.4.</span> <span class="nav-text">2.4. Face Presentation Attack Detection in Learned Color-liked Space (2018)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-Learning-Deep-Models-for-Face-Anti-Spoofing-Binary-or-Auxiliary-Supervision-2018CVPR"><span class="nav-number">2.5.</span> <span class="nav-text">2.5. Learning Deep Models for Face Anti-Spoofing: Binary or Auxiliary Supervision (2018CVPR)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Schemes"><span class="nav-number">3.</span> <span class="nav-text">3. Schemes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-Scheme-1"><span class="nav-number">3.1.</span> <span class="nav-text">3.1. Scheme 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-Scheme-2"><span class="nav-number">3.2.</span> <span class="nav-text">3.2. Scheme 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-Scheme-3"><span class="nav-number">3.3.</span> <span class="nav-text">3.3. Scheme 3</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-Open-Resources"><span class="nav-number">4.</span> <span class="nav-text">4. Open Resources</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-Open-platform"><span class="nav-number">4.1.</span> <span class="nav-text">4.1. Open platform</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-Codes"><span class="nav-number">4.2.</span> <span class="nav-text">4.2. Codes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-Webpages"><span class="nav-number">4.3.</span> <span class="nav-text">4.3. Webpages</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Terry Wu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'Ch0QLFzQLdyKFPOIXfdw1oOX-gzGzoHsz',
+        appKey: 'Ht4oyjIkdSUvwwogPySVIFhM',
+        placeholder: '快来评论一下吧!',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
