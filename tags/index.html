@@ -330,10 +330,10 @@
         
           <div class="tag-cloud">
             <div class="tag-cloud-title">
-                8 tags in total
+                10 tags in total
             </div>
             <div class="tag-cloud-tags">
-              <a href="/tags/Face-Recognition/" style="font-size: 12px; color: #ccc">Face Recognition</a> <a href="/tags/Feature-Normalization/" style="font-size: 12px; color: #ccc">Feature Normalization</a> <a href="/tags/Pedstrain/" style="font-size: 30px; color: #111">Pedstrain</a> <a href="/tags/Pose-Estimation/" style="font-size: 12px; color: #ccc">Pose Estimation</a> <a href="/tags/class-imbalance/" style="font-size: 12px; color: #ccc">class imbalance</a> <a href="/tags/gluon/" style="font-size: 12px; color: #ccc">gluon</a> <a href="/tags/imbalance-learning/" style="font-size: 12px; color: #ccc">imbalance learning</a> <a href="/tags/mxnet/" style="font-size: 12px; color: #ccc">mxnet</a>
+              <a href="/tags/Detection/" style="font-size: 12px; color: #ccc">Detection</a> <a href="/tags/Face-Recognition/" style="font-size: 12px; color: #ccc">Face Recognition</a> <a href="/tags/Feature-Normalization/" style="font-size: 12px; color: #ccc">Feature Normalization</a> <a href="/tags/Pedstrain/" style="font-size: 30px; color: #111">Pedstrain</a> <a href="/tags/Pose-Estimation/" style="font-size: 12px; color: #ccc">Pose Estimation</a> <a href="/tags/Yolo-v3/" style="font-size: 12px; color: #ccc">Yolo-v3</a> <a href="/tags/class-imbalance/" style="font-size: 12px; color: #ccc">class imbalance</a> <a href="/tags/gluon/" style="font-size: 12px; color: #ccc">gluon</a> <a href="/tags/imbalance-learning/" style="font-size: 12px; color: #ccc">imbalance learning</a> <a href="/tags/mxnet/" style="font-size: 12px; color: #ccc">mxnet</a>
             </div>
           </div>
         
@@ -356,11 +356,7 @@
 
   
     <div class="comments" id="comments">
-      
-        <div id="gitment-container"></div>
-      
     </div>
-
   
   
   
@@ -400,7 +396,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -411,7 +407,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -422,7 +418,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -631,27 +627,29 @@
 
 
 
-    
-    
-    
-    
-    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-    
-        <script type="text/javascript">
-            var gitment = new Gitment({
-                    id: window.location.pathname, 
-                    owner: '',
-                    repo: '',
-                    oauth: {
-                        client_id: 'e3c4523ab501b5864760',
-                        client_secret: 'b1941215a8d5316ba62abff27b3cf01f42b116bf',
-                    }});
-            gitment.render('gitment-container');
-        </script>
-    
 
 
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'Ch0QLFzQLdyKFPOIXfdw1oOX-gzGzoHsz',
+        appKey: 'Ht4oyjIkdSUvwwogPySVIFhM',
+        placeholder: '快来评论一下吧!',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
