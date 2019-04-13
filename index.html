@@ -425,20 +425,17 @@
 
       
         
-          <center><font face="微软雅黑" size="6"> 人脸合成 </font></center>
-
+          <p><div style="display: none"></div></p>
+<p><center><font face="微软雅黑" size="6"> 人脸合成 </font></center><br>&lt;/div&gt;</p>
 <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>人脸姿态不变处理方法可以分为两类:</p>
 <ul>
-<li>手工构造或学习姿态不变特征<br>难点: <ul>
-<li>需要在不变性和可区分性之间找到平衡, 因此对于大的姿态变化性能不好)</li>
-<li>imbalance distributions (long tail distribution); </li>
+<li><strong>手工构造或学习姿态不变特征</strong>: 此类方法主要存在两个问题, 一是需要在不变性和可区分性之间找到平衡, 因此对于大的姿态变化性能不好; 二是数据通常呈现重尾分布, 某些情形下模型泛化能力有限;  </li>
+<li><strong>合成正脸人脸图像</strong>: 主要包含两类方法, (1) 3D 几何变换法, 该类方法难以有效恢复人脸细节; (2) 数据驱动方法, 如 VAE, GAN-based 的方法. 基于 GAN 的方法是我们重点关注和讨论的方法, </li>
 </ul>
-</li>
-<li>合成正脸人脸图像<ul>
-<li>3D 几何变换法</li>
-<li>数据驱动方法 (deep learning)</li>
-</ul>
-</li>
+<p><img src="/2019/04/08/Face-Synthesis/2019-04-13-23-38-06.png" alt=""></p>
+<p>正脸合成问题理解:</p>
+<ul>
+<li>优化角度: 病态问题, 若无先验知识约束, 将会存在多个解;</li>
 </ul>
           <!--noindex-->
           <div class="post-button text-center">
@@ -2392,6 +2389,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>Total Visitors
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>Count
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 
@@ -2433,8 +2450,6 @@
   
 
 
-  
-
 
 
 
@@ -2473,11 +2488,6 @@
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
