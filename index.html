@@ -591,9 +591,10 @@
       
         
           
-            <h1 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h1><h2 id="438-Find-All-Anagrams-in-a-String"><a href="#438-Find-All-Anagrams-in-a-String" class="headerlink" title="438. Find All Anagrams in a String"></a>438. Find All Anagrams in a String</h2><p><strong>题目描述</strong>: \<br>Given a string s and a non-empty string p, find all the start indices of p’s anagrams in s.<br>Strings consists of lowercase English letters only and the length of both strings s and p will not be larger than 20,100.<br>The order of output does not matter.</p>
-<p>Example 1: \<br>Input: s: “cbaebabacd” p: “abc” \<br>Output: [0, 6] \<br>Explanation:<br>The substring with start index = 0 is “cba”, which is an anagram of “abc”.<br>The substring with start index = 6 is “bac”, which is an anagram of “abc”.</p>
-<p>Example 2: \<br>Input: s: “abab” p: “ab” \<br>Output: [0, 1, 2] \<br>Explanation: The substring with start index = 0 is “ab”, which is an anagram of “ab”.<br>The substring with start index = 1 is “ba”, which is an anagram of “ab”.<br>The substring with start index = 2 is “ab”, which is an anagram of “ab”.</p>
+            <h1 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h1><h2 id="438-Find-All-Anagrams-in-a-String"><a href="#438-Find-All-Anagrams-in-a-String" class="headerlink" title="438. Find All Anagrams in a String"></a>438. Find All Anagrams in a String</h2><p><strong>题目描述</strong>:</p>
+<p>Given a string s and a non-empty string p, find all the start indices of p’s anagrams in s.<br>Strings consists of lowercase English letters only and the length of both strings s and p will not be larger than 20,100.<br>The order of output does not matter.</p>
+<p>Example 1:<br>Input: s: “cbaebabacd” p: “abc”<br>Output: [0, 6]<br>Explanation:<br>The substring with start index = 0 is “cba”, which is an anagram of “abc”.<br>The substring with start index = 6 is “bac”, which is an anagram of “abc”.</p>
+<p>Example 2:<br>Input: s: “abab” p: “ab”<br>Output: [0, 1, 2]<br>Explanation: The substring with start index = 0 is “ab”, which is an anagram of “ab”.<br>The substring with start index = 1 is “ba”, which is an anagram of “ab”.<br>The substring with start index = 2 is “ab”, which is an anagram of “ab”.</p>
 <p><strong>解题思路:</strong> 滑窗法</p>
 <ul>
 <li>最简单的思路是首先对 p 排序, 然后对 s 滑窗中的字符进行排序, 然后比较; </li>
