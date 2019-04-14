@@ -109,13 +109,13 @@
 
 
 
-<meta name="description" content="人脸合成 &amp;lt;/div&amp;gt; 概述人脸姿态不变处理方法可以分为两类:  手工构造或学习姿态不变特征: 此类方法主要存在两个问题, 一是需要在不变性和可区分性之间找到平衡, 因此对于大的姿态变化性能不好; 二是数据通常呈现重尾分布, 某些情形下模型泛化能力有限;   合成正脸人脸图像: 主要包含两类方法, (1) 3D 几何变换法, 该类方法难以有效恢复人脸细节; (2) 数据驱动方法,">
+<meta name="description" content="概述人脸姿态不变处理方法可以分为两类:  手工构造或学习姿态不变特征: 此类方法主要存在两个问题, 一是需要在不变性和可区分性之间找到平衡, 因此对于大的姿态变化性能不好; 二是数据通常呈现重尾分布, 某些情形下模型泛化能力有限;   合成正脸人脸图像: 主要包含两类方法, (1) 3D 几何变换法, 该类方法难以有效恢复人脸细节; (2) 数据驱动方法, 如 VAE, GAN-based 的方法">
 <meta name="keywords" content="Face Recognition,GAN,Face Frontalization,Face Normalization">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Face Synthesis">
 <meta property="og:url" content="http://yoursite.com/2019/04/08/Face-Synthesis/index.html">
 <meta property="og:site_name" content="Terry Wu">
-<meta property="og:description" content="人脸合成 &amp;lt;/div&amp;gt; 概述人脸姿态不变处理方法可以分为两类:  手工构造或学习姿态不变特征: 此类方法主要存在两个问题, 一是需要在不变性和可区分性之间找到平衡, 因此对于大的姿态变化性能不好; 二是数据通常呈现重尾分布, 某些情形下模型泛化能力有限;   合成正脸人脸图像: 主要包含两类方法, (1) 3D 几何变换法, 该类方法难以有效恢复人脸细节; (2) 数据驱动方法,">
+<meta property="og:description" content="概述人脸姿态不变处理方法可以分为两类:  手工构造或学习姿态不变特征: 此类方法主要存在两个问题, 一是需要在不变性和可区分性之间找到平衡, 因此对于大的姿态变化性能不好; 二是数据通常呈现重尾分布, 某些情形下模型泛化能力有限;   合成正脸人脸图像: 主要包含两类方法, (1) 3D 几何变换法, 该类方法难以有效恢复人脸细节; (2) 数据驱动方法, 如 VAE, GAN-based 的方法">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/04/08/Face-Synthesis/2019-04-13-23-38-06.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/08/Face-Synthesis/2019-04-10-09-29-57.png">
@@ -128,10 +128,10 @@
 <meta property="og:image" content="http://yoursite.com/2019/04/08/Face-Synthesis/2019-04-08-11-47-01.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/08/Face-Synthesis/2019-04-08-19-21-53.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/08/Face-Synthesis/2019-04-08-19-47-15.png">
-<meta property="og:updated_time" content="2019-04-13T15:38:59.941Z">
+<meta property="og:updated_time" content="2019-04-14T03:22:54.539Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Face Synthesis">
-<meta name="twitter:description" content="人脸合成 &amp;lt;/div&amp;gt; 概述人脸姿态不变处理方法可以分为两类:  手工构造或学习姿态不变特征: 此类方法主要存在两个问题, 一是需要在不变性和可区分性之间找到平衡, 因此对于大的姿态变化性能不好; 二是数据通常呈现重尾分布, 某些情形下模型泛化能力有限;   合成正脸人脸图像: 主要包含两类方法, (1) 3D 几何变换法, 该类方法难以有效恢复人脸细节; (2) 数据驱动方法,">
+<meta name="twitter:description" content="概述人脸姿态不变处理方法可以分为两类:  手工构造或学习姿态不变特征: 此类方法主要存在两个问题, 一是需要在不变性和可区分性之间找到平衡, 因此对于大的姿态变化性能不好; 二是数据通常呈现重尾分布, 某些情形下模型泛化能力有限;   合成正脸人脸图像: 主要包含两类方法, (1) 3D 几何变换法, 该类方法难以有效恢复人脸细节; (2) 数据驱动方法, 如 VAE, GAN-based 的方法">
 <meta name="twitter:image" content="http://yoursite.com/2019/04/08/Face-Synthesis/2019-04-13-23-38-06.png">
 
 
@@ -443,9 +443,7 @@
       
 
       
-        <p><div style="display: none"></div></p>
-<p><center><font face="微软雅黑" size="6"> 人脸合成 </font></center><br>&lt;/div&gt;</p>
-<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>人脸姿态不变处理方法可以分为两类:</p>
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>人脸姿态不变处理方法可以分为两类:</p>
 <ul>
 <li><strong>手工构造或学习姿态不变特征</strong>: 此类方法主要存在两个问题, 一是需要在不变性和可区分性之间找到平衡, 因此对于大的姿态变化性能不好; 二是数据通常呈现重尾分布, 某些情形下模型泛化能力有限;  </li>
 <li><strong>合成正脸人脸图像</strong>: 主要包含两类方法, (1) 3D 几何变换法, 该类方法难以有效恢复人脸细节; (2) 数据驱动方法, 如 VAE, GAN-based 的方法. 基于 GAN 的方法是我们重点关注和讨论的方法, </li>
