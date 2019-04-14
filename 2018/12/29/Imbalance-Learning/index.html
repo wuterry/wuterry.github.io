@@ -109,18 +109,18 @@
 
 
 
-<meta name="description" content="Data-basedsampling methods欠采样:过采样: SMOTEAlgorithm-basedCost Sensitive LearningTheshold adjustmentGenerally, predicted label is positive when the score $s &amp;gt; 0.5$. It’s reasonable when $num_pos:num_n">
+<meta name="description" content="数据不平衡方法的整理.">
 <meta name="keywords" content="imbalance learning,class imbalance">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Imbalance Learning">
 <meta property="og:url" content="http://yoursite.com/2018/12/29/Imbalance-Learning/index.html">
 <meta property="og:site_name" content="Terry Wu">
-<meta property="og:description" content="Data-basedsampling methods欠采样:过采样: SMOTEAlgorithm-basedCost Sensitive LearningTheshold adjustmentGenerally, predicted label is positive when the score $s &amp;gt; 0.5$. It’s reasonable when $num_pos:num_n">
+<meta property="og:description" content="数据不平衡方法的整理.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-29T06:30:15.051Z">
+<meta property="og:updated_time" content="2019-04-14T03:33:43.622Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Imbalance Learning">
-<meta name="twitter:description" content="Data-basedsampling methods欠采样:过采样: SMOTEAlgorithm-basedCost Sensitive LearningTheshold adjustmentGenerally, predicted label is positive when the score $s &amp;gt; 0.5$. It’s reasonable when $num_pos:num_n">
+<meta name="twitter:description" content="数据不平衡方法的整理.">
 
 
 
@@ -431,7 +431,9 @@
       
 
       
-        <h1 id="Data-based"><a href="#Data-based" class="headerlink" title="Data-based"></a>Data-based</h1><h2 id="sampling-methods"><a href="#sampling-methods" class="headerlink" title="sampling methods"></a>sampling methods</h2><h3 id="欠采样"><a href="#欠采样" class="headerlink" title="欠采样:"></a>欠采样:</h3><h3 id="过采样-SMOTE"><a href="#过采样-SMOTE" class="headerlink" title="过采样: SMOTE"></a>过采样: SMOTE</h3><h1 id="Algorithm-based"><a href="#Algorithm-based" class="headerlink" title="Algorithm-based"></a>Algorithm-based</h1><h2 id="Cost-Sensitive-Learning"><a href="#Cost-Sensitive-Learning" class="headerlink" title="Cost Sensitive Learning"></a>Cost Sensitive Learning</h2><h2 id="Theshold-adjustment"><a href="#Theshold-adjustment" class="headerlink" title="Theshold adjustment"></a>Theshold adjustment</h2><p>Generally, predicted label is positive when the score $s &gt; 0.5$. It’s reasonable when $num_pos:num_neg = 1: 1$. However, the score should be adjust with the change of ratio between the number of positive and negtive samples.</p>
+        <p>数据不平衡方法的整理.</p>
+<a id="more"></a>
+<h1 id="Data-based"><a href="#Data-based" class="headerlink" title="Data-based"></a>Data-based</h1><h2 id="sampling-methods"><a href="#sampling-methods" class="headerlink" title="sampling methods"></a>sampling methods</h2><h3 id="欠采样"><a href="#欠采样" class="headerlink" title="欠采样:"></a>欠采样:</h3><h3 id="过采样-SMOTE"><a href="#过采样-SMOTE" class="headerlink" title="过采样: SMOTE"></a>过采样: SMOTE</h3><h1 id="Algorithm-based"><a href="#Algorithm-based" class="headerlink" title="Algorithm-based"></a>Algorithm-based</h1><h2 id="Cost-Sensitive-Learning"><a href="#Cost-Sensitive-Learning" class="headerlink" title="Cost Sensitive Learning"></a>Cost Sensitive Learning</h2><h2 id="Theshold-adjustment"><a href="#Theshold-adjustment" class="headerlink" title="Theshold adjustment"></a>Theshold adjustment</h2><p>Generally, predicted label is positive when the score $s &gt; 0.5$. It’s reasonable when $num_pos:num_neg = 1: 1$. However, the score should be adjust with the change of ratio between the number of positive and negtive samples.</p>
 <p>We define $m^+$ is the number of positive samples, and $m^-$ is the number of negtive samples. The decision rule should be satified with</p>
 <script type="math/tex; mode=display">
 \frac{s}{1-s}=\frac{m^+}{m^-}</script><p>In implementation, we choose the optimal threshold by ROC curve.</p>

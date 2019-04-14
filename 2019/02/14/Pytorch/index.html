@@ -109,17 +109,17 @@
 
 
 
-<meta name="description" content="问题 Test 时， 即使使用 Module.eval() 仍然每次输出结果不一致     原因 torch.nn.Module.eval() 和 torch.nn.Module.train() 的某些 layer 的操作是不一样的， 比如 BatchNorm 和 Dropout   方案 法一：forward() 中 设置 x = F.dropout(x, p=0.5, training">
+<meta name="description" content="整理了一些使用 Pytorch 中遇到的常见问题和技巧, 持续更新中 ……">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pytorch">
 <meta property="og:url" content="http://yoursite.com/2019/02/14/Pytorch/index.html">
 <meta property="og:site_name" content="Terry Wu">
-<meta property="og:description" content="问题 Test 时， 即使使用 Module.eval() 仍然每次输出结果不一致     原因 torch.nn.Module.eval() 和 torch.nn.Module.train() 的某些 layer 的操作是不一样的， 比如 BatchNorm 和 Dropout   方案 法一：forward() 中 设置 x = F.dropout(x, p=0.5, training">
+<meta property="og:description" content="整理了一些使用 Pytorch 中遇到的常见问题和技巧, 持续更新中 ……">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-26T02:30:18.417Z">
+<meta property="og:updated_time" content="2019-04-14T03:31:24.402Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pytorch">
-<meta name="twitter:description" content="问题 Test 时， 即使使用 Module.eval() 仍然每次输出结果不一致     原因 torch.nn.Module.eval() 和 torch.nn.Module.train() 的某些 layer 的操作是不一样的， 比如 BatchNorm 和 Dropout   方案 法一：forward() 中 设置 x = F.dropout(x, p=0.5, training">
+<meta name="twitter:description" content="整理了一些使用 Pytorch 中遇到的常见问题和技巧, 持续更新中 ……">
 
 
 
@@ -430,7 +430,9 @@
       
 
       
-        <div class="table-container">
+        <p>整理了一些使用 Pytorch 中遇到的常见问题和技巧, 持续更新中 ……</p>
+<a id="more"></a>
+<div class="table-container">
 <table>
 <thead>
 <tr>

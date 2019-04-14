@@ -109,13 +109,13 @@
 
 
 
-<meta name="description" content="人体姿态估计可以分为两类方法, 分别是:  Top-down: (two-step framework) 先使用人体检测算法检测人体, 然后逐人体估计关键点   缺点: 该方法严重依赖人体检测算法 bounding box 的准确性.  Bottom-up: (part-based framework) 首先检测人体部件(关键点), 然后集成这些人体关键点组成人体姿态.   缺点: 拥挤人群难以">
+<meta name="description" content="人体姿态估计可以分为两类方法, 分别是:  Top-down: (two-step framework) 先使用人体检测算法检测人体, 然后逐人体估计关键点   缺点: 该方法严重依赖人体检测算法 bounding box 的准确性.  Bottom-up: (part-based framework) 首先检测人体部件(关键点), 然后集成这些人体关键点组成人体姿态.   缺点: 拥挤人群难以估">
 <meta name="keywords" content="Pose Estimation">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Multi Person Pose Estimation">
 <meta property="og:url" content="http://yoursite.com/2018/12/28/Multi-person-pose-estimation/index.html">
 <meta property="og:site_name" content="Terry Wu">
-<meta property="og:description" content="人体姿态估计可以分为两类方法, 分别是:  Top-down: (two-step framework) 先使用人体检测算法检测人体, 然后逐人体估计关键点   缺点: 该方法严重依赖人体检测算法 bounding box 的准确性.  Bottom-up: (part-based framework) 首先检测人体部件(关键点), 然后集成这些人体关键点组成人体姿态.   缺点: 拥挤人群难以">
+<meta property="og:description" content="人体姿态估计可以分为两类方法, 分别是:  Top-down: (two-step framework) 先使用人体检测算法检测人体, 然后逐人体估计关键点   缺点: 该方法严重依赖人体检测算法 bounding box 的准确性.  Bottom-up: (part-based framework) 首先检测人体部件(关键点), 然后集成这些人体关键点组成人体姿态.   缺点: 拥挤人群难以估">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2018/12/28/Multi-person-pose-estimation/2018-12-28-16-50-57.png">
 <meta property="og:image" content="http://yoursite.com/2018/12/28/Multi-person-pose-estimation/2018-12-28-16-57-01.png">
@@ -124,10 +124,10 @@
 <meta property="og:image" content="http://yoursite.com/2018/12/28/Multi-person-pose-estimation/2018-12-28-19-13-25.png">
 <meta property="og:image" content="http://yoursite.com/2018/12/28/Multi-person-pose-estimation/2018-12-28-19-13-47.png">
 <meta property="og:image" content="http://yoursite.com/2018/12/28/Multi-person-pose-estimation/2018-12-28-20-03-33.png">
-<meta property="og:updated_time" content="2018-12-29T00:37:42.299Z">
+<meta property="og:updated_time" content="2019-04-14T03:34:47.550Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Multi Person Pose Estimation">
-<meta name="twitter:description" content="人体姿态估计可以分为两类方法, 分别是:  Top-down: (two-step framework) 先使用人体检测算法检测人体, 然后逐人体估计关键点   缺点: 该方法严重依赖人体检测算法 bounding box 的准确性.  Bottom-up: (part-based framework) 首先检测人体部件(关键点), 然后集成这些人体关键点组成人体姿态.   缺点: 拥挤人群难以">
+<meta name="twitter:description" content="人体姿态估计可以分为两类方法, 分别是:  Top-down: (two-step framework) 先使用人体检测算法检测人体, 然后逐人体估计关键点   缺点: 该方法严重依赖人体检测算法 bounding box 的准确性.  Bottom-up: (part-based framework) 首先检测人体部件(关键点), 然后集成这些人体关键点组成人体姿态.   缺点: 拥挤人群难以估">
 <meta name="twitter:image" content="http://yoursite.com/2018/12/28/Multi-person-pose-estimation/2018-12-28-16-50-57.png">
 
 
@@ -439,8 +439,7 @@
       
 
       
-        <a id="more"></a>
-<p>人体姿态估计可以分为两类方法, 分别是:</p>
+        <p>人体姿态估计可以分为两类方法, 分别是:</p>
 <ul>
 <li><strong>Top-down</strong>: (two-step framework) 先使用人体检测算法检测人体, 然后逐人体估计关键点 </li>
 </ul>
@@ -449,6 +448,7 @@
 <li><strong>Bottom-up</strong>: (part-based framework) 首先检测人体部件(关键点), 然后集成这些人体关键点组成人体姿态. </li>
 </ul>
 <p>缺点: 拥挤人群难以估计准确; 此外, 仅仅利用二级信息(关键点),失去从全局姿态中捕捉身体部件的能力.</p>
+<a id="more"></a>
 <h1 id="RMPE-Regional-Multi-Person-Pose-Estimation"><a href="#RMPE-Regional-Multi-Person-Pose-Estimation" class="headerlink" title="RMPE: Regional Multi-Person Pose Estimation"></a>RMPE: Regional Multi-Person Pose Estimation</h1><p><img src="/2018/12/28/Multi-person-pose-estimation/2018-12-28-16-50-57.png" alt="Pipline of RMPE"></p>
 <p>本文试图在人体 bounding box 不准确的情况下精确估计人体姿态. \<br>人体检测算法: Faster-RCNN, YOLO-v3 et.al. \<br>姿态估计算法: SPPE Stacked Hourglass model </p>
 <p>由于 SPPE 容易受 bbox 准确性的影响, 文章提出了 RMPE 算法.</p>
