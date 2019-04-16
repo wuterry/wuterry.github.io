@@ -117,16 +117,13 @@
 <meta property="og:site_name" content="Terry Wu">
 <meta property="og:description" content="行人属性识别通常包含了多个属性的识别，如 gender, age， coat, trousers, luggage 等。在实际项目中我们发现，相比于人脸属性，行人属性识别具有其自身特点，难度更高：  部分属性仅和人体的部分区域相关，如上衣长短袖仅和人体上半身相关； 训练样本较难，主要表现为部分身体和遮挡 (如某些人体只有上半身或下半身，同一人体 bbox 中出现多个人体)； 某些属性是多分类，某些">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://twemoji.maxcdn.com/2/72x72/1f60b.png">
-<meta property="og:image" content="https://twemoji.maxcdn.com/2/72x72/1f60b.png">
-<meta property="og:image" content="https://twemoji.maxcdn.com/2/72x72/1f60b.png">
 <meta property="og:image" content="http://yoursite.com/2018/09/13/Pedstrain-Attribute-Notes/annos_of_RAP.png">
 <meta property="og:image" content="http://yoursite.com/2018/09/13/Pedstrain-Attribute-Notes/indicators.png">
 <meta property="og:updated_time" content="2019-04-14T03:38:52.357Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pedstrain Attribute Notes">
 <meta name="twitter:description" content="行人属性识别通常包含了多个属性的识别，如 gender, age， coat, trousers, luggage 等。在实际项目中我们发现，相比于人脸属性，行人属性识别具有其自身特点，难度更高：  部分属性仅和人体的部分区域相关，如上衣长短袖仅和人体上半身相关； 训练样本较难，主要表现为部分身体和遮挡 (如某些人体只有上半身或下半身，同一人体 bbox 中出现多个人体)； 某些属性是多分类，某些">
-<meta name="twitter:image" content="https://twemoji.maxcdn.com/2/72x72/1f60b.png">
+<meta name="twitter:image" content="http://yoursite.com/2018/09/13/Pedstrain-Attribute-Notes/annos_of_RAP.png">
 
 
 
@@ -443,70 +440,55 @@
 <li>某些属性占整张图片的区域过小，如墨镜，正脸情况下的双肩包预测；</li>
 </ul>
 <p>在算法设计中比较简单粗暴的思路是每个属性采用独立模型，可以想见当属性很多时，即使是小模型， 高性能 GPU 都未必能够处理过来. 所以更具有可扩展性的做法是当成多任务 (multi-task) 或者多标签 (multi-label)学习. 特别地，当某些属性包含多个类 ($\geq3$) 时, 采用 multi-task learning 更合理。</p>
-<p>基于多任务学习的属性识别面临诸多挑战，比如哪一层开始作为 share layer 开始分支, 不同任务之间 loss 的权重问题, 总结起来所面临的<strong>挑战</strong>包含如下几个方面:</p>
+<p>基于多任务学习的属性识别面临诸多挑战，比如哪一层开始作为 share layer 开始分支, 不同任务之间 loss 的权重问题, 总结起来所面临的<strong>挑战</strong>包含如下几个方面: </p>
 <ul>
 <li><strong>Networks Structure</strong></li>
 <li><strong>Adaptive Loss</strong></li>
 <li><strong>Class Imbalance</strong></li>
 <li><strong>Missing Labels</strong></li>
 </ul>
-<p>针对如上说列举的一些挑战, 也有相关文献提出了相应的解决方案. 但到目前为止, 还未看到哪一篇文献对以上问题进行了综合解决, 也许这只是一个工程问题, 大佬们都不屑于解决这样琐碎的问题 <img class="emoji" draggable="false" alt="😋" src="https://twemoji.maxcdn.com/2/72x72/1f60b.png"><img class="emoji" draggable="false" alt="😋" src="https://twemoji.maxcdn.com/2/72x72/1f60b.png"><img class="emoji" draggable="false" alt="😋" src="https://twemoji.maxcdn.com/2/72x72/1f60b.png">. 但是在产品落地的过程必须要解决这些问题.</p>
+<p>针对如上说列举的一些挑战, 也有相关文献提出了相应的解决方案. 但到目前为止, 还未看到哪一篇文献对以上问题进行了综合解决, 也许这只是一个工程问题, 大佬们都不屑于解决这样琐碎的问题 :yum::yum::yum:. 但是在产品落地的过程必须要解决这些问题.</p>
 <hr>
 <a id="more"></a>
-<h1>Appendix</h1>
-<p>行人属性识别相关资源。</p>
-<h2 id="projects"><a class="header-anchor" href="#projects"></a>Projects</h2>
-<h3 id="wpal-network"><a class="header-anchor" href="#wpal-network"></a><a href="https://github.com/YangZhou1994/WPAL-network" target="_blank" rel="noopener">WPAL-network</a></h3>
-<ul>
+<h1 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h1><p>行人属性识别相关资源。</p>
+<h2 id="Projects"><a href="#Projects" class="headerlink" title="Projects"></a>Projects</h2><h3 id="WPAL-network"><a href="#WPAL-network" class="headerlink" title="WPAL-network"></a><a href="https://github.com/YangZhou1994/WPAL-network" target="_blank" rel="noopener">WPAL-network</a></h3><ul>
 <li>paper: <a href="https://arxiv.org/pdf/1611.05603.pdf" target="_blank" rel="noopener">Weakly-supervised Pedestrian Attribute Localization Network</a></li>
 <li>code: <a href="https://github.com/YangZhou1994/WPAL-network" target="_blank" rel="noopener">https://github.com/YangZhou1994/WPAL-network</a></li>
 </ul>
-<h3 id="hydraplus-net"><a class="header-anchor" href="#hydraplus-net"></a><a href="https://github.com/xh-liu/HydraPlus-Net" target="_blank" rel="noopener">HydraPlus-Net</a></h3>
-<ul>
+<h3 id="HydraPlus-Net"><a href="#HydraPlus-Net" class="headerlink" title="HydraPlus-Net"></a><a href="https://github.com/xh-liu/HydraPlus-Net" target="_blank" rel="noopener">HydraPlus-Net</a></h3><ul>
 <li>paper: <a href="https://arxiv.org/abs/1709.09930" target="_blank" rel="noopener">HydraPlus-Net: Attentive Deep Features for Pedestrian Analysis</a></li>
 <li>code: <a href="https://github.com/xh-liu/HydraPlus-Net" target="_blank" rel="noopener">https://github.com/xh-liu/HydraPlus-Net</a></li>
 </ul>
-<h3 id="vespa"><a class="header-anchor" href="#vespa"></a><a href="https://github.com/asc-kit/vespa" target="_blank" rel="noopener">VeSPA</a></h3>
-<ul>
+<h3 id="VeSPA"><a href="#VeSPA" class="headerlink" title="VeSPA"></a><a href="https://github.com/asc-kit/vespa" target="_blank" rel="noopener">VeSPA</a></h3><ul>
 <li>paper: <a href="https://arxiv.org/pdf/1707.06089.pdf" target="_blank" rel="noopener">Deep View-Sensitive Pedestrian Attribute Inference in an end-to-end Model</a></li>
 <li>code: <a href="https://github.com/asc-kit/vespa" target="_blank" rel="noopener">https://github.com/asc-kit/vespa</a></li>
 </ul>
-<h3 id="srn"><a class="header-anchor" href="#srn"></a><a href="https://arxiv.org/abs/1702.05891" target="_blank" rel="noopener">SRN</a></h3>
-<ul>
+<h3 id="SRN"><a href="#SRN" class="headerlink" title="SRN"></a><a href="https://arxiv.org/abs/1702.05891" target="_blank" rel="noopener">SRN</a></h3><ul>
 <li>paper: <a href="https://arxiv.org/abs/1702.05891" target="_blank" rel="noopener">Learning Spatial Regularization with Image-level Supervisions for Multi-label Image Classification</a></li>
 <li>code: <a href="https://github.com/zhufengx/SRN_multilabel" target="_blank" rel="noopener">https://github.com/zhufengx/SRN_multilabel</a></li>
 </ul>
-<h2 id="dataset"><a class="header-anchor" href="#dataset"></a>Dataset</h2>
-<h3 id="rap"><a class="header-anchor" href="#rap"></a><a href="http://rap.idealtest.org/" target="_blank" rel="noopener">RAP</a></h3>
-<p>RAP 共有 41585 个行人样本，包含 72 个属性，为室内场景。</p>
+<h2 id="Dataset"><a href="#Dataset" class="headerlink" title="Dataset"></a>Dataset</h2><h3 id="RAP"><a href="#RAP" class="headerlink" title="RAP"></a><a href="http://rap.idealtest.org/" target="_blank" rel="noopener">RAP</a></h3><p>RAP 共有 41585 个行人样本，包含 72 个属性，为室内场景。</p>
 <p><img src="/2018/09/13/Pedstrain-Attribute-Notes/annos_of_RAP.png" alt="Annotations" title="Annotations of RAP"></p>
 <p>该数据集需要申请。</p>
-<h3 id="pa-100k"><a class="header-anchor" href="#pa-100k"></a><a href="https://github.com/xh-liu/HydraPlus-Net" target="_blank" rel="noopener">PA-100K</a></h3>
-<p>Download: <a href="https://pan.baidu.com/s/1l-5a__OTwZVkhm_A16HraQ#list/path=%2F" target="_blank" rel="noopener">Baiduyun</a>, <a href="https://drive.google.com/drive/folders/0B5_Ra3JsEOyOUlhKM0VPZ1ZWR2M" target="_blank" rel="noopener">Google</a></p>
+<h3 id="PA-100K"><a href="#PA-100K" class="headerlink" title="PA-100K"></a><a href="https://github.com/xh-liu/HydraPlus-Net" target="_blank" rel="noopener">PA-100K</a></h3><p>Download: <a href="https://pan.baidu.com/s/1l-5a__OTwZVkhm_A16HraQ#list/path=%2F" target="_blank" rel="noopener">Baiduyun</a>, <a href="https://drive.google.com/drive/folders/0B5_Ra3JsEOyOUlhKM0VPZ1ZWR2M" target="_blank" rel="noopener">Google</a></p>
 <ul>
 <li>PA-100K 包含 100k 的行人图片，26 个常见属性 (如全局属性：性别，年龄等；物体级别属性手提包，电话，上衣等)。</li>
 <li>图片源于室外监控视频，采集方式为跟踪行人轨迹,并随机分配到不同的文件夹,从而保证行人ID 和属性独立。</li>
 </ul>
-<h3 id="peta"><a class="header-anchor" href="#peta"></a><a href="http://mmlab.ie.cuhk.edu.hk/projects/PETA.html" target="_blank" rel="noopener">PETA</a></h3>
-<ul>
-<li>
-<p>Download: <a href="https://www.dropbox.com/s/52ylx522hwbdxz6/PETA.zip?dl=0" target="_blank" rel="noopener">https://www.dropbox.com/s/52ylx522hwbdxz6/PETA.zip?dl=0</a></p>
+<h3 id="PETA"><a href="#PETA" class="headerlink" title="PETA"></a><a href="http://mmlab.ie.cuhk.edu.hk/projects/PETA.html" target="_blank" rel="noopener">PETA</a></h3><ul>
+<li><p>Download: <a href="https://www.dropbox.com/s/52ylx522hwbdxz6/PETA.zip?dl=0" target="_blank" rel="noopener">https://www.dropbox.com/s/52ylx522hwbdxz6/PETA.zip?dl=0</a></p>
 </li>
-<li>
-<p>PETA 包含 19k 图像，分辨率从 17x39 至 169x365. 共 8705 个行人，具有 61 个二值属性和 4 个多分类属性。</p>
+<li><p>PETA 包含 19k 图像，分辨率从 17x39 至 169x365. 共 8705 个行人，具有 61 个二值属性和 4 个多分类属性。</p>
 </li>
 </ul>
-<h2 id="evaluation"><a class="header-anchor" href="#evaluation"></a>Evaluation</h2>
-<ul>
+<h2 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h2><ul>
 <li><em>Reference</em>: Li, D., Zhang, Z., Chen, X., Ling, H., &amp; Huang, K. (2016). A richly annotated dataset for pedestrian attribute recognition. arXiv preprint arXiv:1603.07054.</li>
 <li><a href="https://github.com/asc-kit/vespa/blob/master/utils/evaluation.py" target="_blank" rel="noopener">code</a></li>
 </ul>
-<h3 id="indicators"><a class="header-anchor" href="#indicators"></a>indicators</h3>
-<ul>
+<h3 id="indicators"><a href="#indicators" class="headerlink" title="indicators"></a>indicators</h3><ul>
 <li>mA (mean Accuracy)</li>
 </ul>
-<p>$$mA = \frac{1}{N}\sum_{i=1}^L \frac{1}{2}\left(\frac{TP_i}{P_i} + \frac{TN_i}{N_i}\right)$$</p>
-<p>where $L$ is the number of attributes; $P_i$ and $TP_i$ are the numbers of positive examples and correctly predicted positive examples, respectively; $N_i$ and $TN_i$ are the numbers of negative examples and correctly predicted negative examples, respectively.</p>
+<script type="math/tex; mode=display">mA = \frac{1}{N}\sum_{i=1}^L \frac{1}{2}\left(\frac{TP_i}{P_i} + \frac{TN_i}{N_i}\right)</script><p>where $L$ is the number of attributes; $P_i$ and $TP_i$ are the numbers of positive examples and correctly predicted positive examples, respectively; $N_i$ and $TN_i$ are the numbers of negative examples and correctly predicted negative examples, respectively.</p>
 <ul>
 <li>Accuracy, Precision, Recall and F1</li>
 </ul>
@@ -633,7 +615,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -644,7 +626,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -688,7 +670,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Appendix</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#projects"><span class="nav-number">1.1.</span> <span class="nav-text">Projects</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#wpal-network"><span class="nav-number">1.1.1.</span> <span class="nav-text">WPAL-network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hydraplus-net"><span class="nav-number">1.1.2.</span> <span class="nav-text">HydraPlus-Net</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vespa"><span class="nav-number">1.1.3.</span> <span class="nav-text">VeSPA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#srn"><span class="nav-number">1.1.4.</span> <span class="nav-text">SRN</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dataset"><span class="nav-number">1.2.</span> <span class="nav-text">Dataset</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rap"><span class="nav-number">1.2.1.</span> <span class="nav-text">RAP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pa-100k"><span class="nav-number">1.2.2.</span> <span class="nav-text">PA-100K</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#peta"><span class="nav-number">1.2.3.</span> <span class="nav-text">PETA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#evaluation"><span class="nav-number">1.3.</span> <span class="nav-text">Evaluation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#indicators"><span class="nav-number">1.3.1.</span> <span class="nav-text">indicators</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Appendix"><span class="nav-number">1.</span> <span class="nav-text">Appendix</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Projects"><span class="nav-number">1.1.</span> <span class="nav-text">Projects</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#WPAL-network"><span class="nav-number">1.1.1.</span> <span class="nav-text">WPAL-network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HydraPlus-Net"><span class="nav-number">1.1.2.</span> <span class="nav-text">HydraPlus-Net</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VeSPA"><span class="nav-number">1.1.3.</span> <span class="nav-text">VeSPA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SRN"><span class="nav-number">1.1.4.</span> <span class="nav-text">SRN</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dataset"><span class="nav-number">1.2.</span> <span class="nav-text">Dataset</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RAP"><span class="nav-number">1.2.1.</span> <span class="nav-text">RAP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PA-100K"><span class="nav-number">1.2.2.</span> <span class="nav-text">PA-100K</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PETA"><span class="nav-number">1.2.3.</span> <span class="nav-text">PETA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Evaluation"><span class="nav-number">1.3.</span> <span class="nav-text">Evaluation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#indicators"><span class="nav-number">1.3.1.</span> <span class="nav-text">indicators</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

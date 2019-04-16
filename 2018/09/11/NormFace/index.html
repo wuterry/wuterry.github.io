@@ -447,8 +447,7 @@
 <li>引入每一类的 agent vector 改写度量学习</li>
 </ul>
 <a id="more"></a>
-<h1>Introduction</h1>
-<p>Face Varification 阶段的一般性做法： 使用 cosine 相似度或者等效的 L2 归一化欧氏距离。作者认为到目前为止，还没有研究人员明确解释为何在测试阶段需要对特征进行归一化。</p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Face Varification 阶段的一般性做法： 使用 cosine 相似度或者等效的 L2 归一化欧氏距离。作者认为到目前为止，还没有研究人员明确解释为何在测试阶段需要对特征进行归一化。</p>
 <p>作者实验发现，归一化 embedding 层和全连接层的权重，网络很难收敛。</p>
 <p>文章解决了如下四个问题：</p>
 <ul>
@@ -462,41 +461,35 @@
 <li>原始图像和镜像图像通过加的形式特征融合；</li>
 <li>对于视频对，使用人脸相似性直方图</li>
 </ul>
-<h1>L2 Normalization Layer</h1>
-<ul>
+<h1 id="L2-Normalization-Layer"><a href="#L2-Normalization-Layer" class="headerlink" title="L2 Normalization Layer"></a>L2 Normalization Layer</h1><ul>
 <li><strong>为何需要特征归一化</strong></li>
 <li><strong>直接对归一化特征使用softmax loss 为何难收敛</strong></li>
 </ul>
-<h2 id="归一化必要性"><a class="header-anchor" href="#归一化必要性"></a>归一化必要性</h2>
-<p>Softmax-loss 定义：</p>
+<h2 id="归一化必要性"><a href="#归一化必要性" class="headerlink" title="归一化必要性"></a>归一化必要性</h2><p>Softmax-loss 定义：</p>
 <p><img src="/2018/09/11/NormFace/equ1.png" alt="equ1"></p>
 <p>其中 $\mathbf{f}_i$ 是第 i 个样本的特征。</p>
 <p><font color="cyan"><strong>命题 1</strong></font>: 剔除偏置项 $b$, 有 $P_i(s\mathbf{f})\geq P_i(\mathbf{f})$. 即是说一般情况下，特征幅值越大，softmax loss 的分类性能就会越好。</p>
 <p>在文章中因为通过了归一化， 并未使用到放大尺度特性。为了避免某些类的重叠，在<strong>分类层会去掉偏置项</strong>。</p>
-<h2 id="层定义"><a class="header-anchor" href="#层定义"></a>层定义</h2>
-<p>定义：</p>
+<h2 id="层定义"><a href="#层定义" class="headerlink" title="层定义"></a>层定义</h2><p>定义：</p>
 <p><img src="/2018/09/11/NormFace/equ3.png" alt="equ3"></p>
 <p>求导：</p>
 <p><img src="/2018/09/11/NormFace/equ4.png" alt="equ4"></p>
 <p>特性： $\mathbf{x}$ 与 $\partial L/\partial\mathbf{x}$ 正交。</p>
-<h2 id="改写-softmax-loss"><a class="header-anchor" href="#改写-softmax-loss"></a>改写 Softmax loss</h2>
-<p>L2 归一化之后， conine 距离 $d(\mathbf{f}, \mathbf{W}<em>i)$ 的阈值范围为 [-1, 1], 这样会导致即使在已经良好分类的情况下，概率 $P</em>{y_i}=e<sup>{W</sup>T_{y_i} f}/\sum{e<sup>{W</sup>T_j f}}$ 很难达到 1.</p>
-<p><font color="cyan"><strong>命题 2</strong></font>: 归一化后 Softmax Loss 下界问题 —— 特征和权重的每列归一化后，其范数为 $l$, 则 softmax loss 具有下界： $\log(1 + (n-1) e<sup>{-\frac{n}{n-1}l</sup>2})$.</p>
-<img src="/2018/09/11/NormFace/SoftmaxLossBound.png" height="330" width="495" align="center">
+<h2 id="改写-Softmax-loss"><a href="#改写-Softmax-loss" class="headerlink" title="改写 Softmax loss"></a>改写 Softmax loss</h2><p>L2 归一化之后， conine 距离 $d(\mathbf{f}, \mathbf{W}_i)$ 的阈值范围为 [-1, 1], 这样会导致即使在已经良好分类的情况下，概率 $P_{y_i}=e^{W^T_{y_i} f}/\sum{e^{W^T_j f}}$ 很难达到 1.</p>
+<p><font color="cyan"><strong>命题 2</strong></font>: 归一化后 Softmax Loss 下界问题 —— 特征和权重的每列归一化后，其范数为 $l$, 则 softmax loss 具有下界： $\log(1 + (n-1) e^{-\frac{n}{n-1}l^2})$.</p>
+<p><img src="/2018/09/11/NormFace/SoftmaxLossBound.png" height="330" width="495" align="center"></p>
 <p>命题 2 即是说如果仅归一化 features 和 weights 为 1， 在训练集上 softmax loss 将会陷入非常高的值。<strong>若需要 loss 继续下降，则可以归一化特征和权重到一个更大的的值 $l$, 而不是 1.</strong></p>
 <p>实际操作中，可以令 $s = l^2$, $s$ 的值根据类别数的多少来确定。为了使参数也能自动学习，修改后的关于 cosine 距离的 softmax loss 定义为：</p>
 <p><img src="/2018/09/11/NormFace/equ6.png" alt="equ3"></p>
 <p>其中，$\mathbf{\tilde{f}}$ 是归一化特征。</p>
-<h1>重塑 Metric Learning</h1>
-<p>由 $|\mathbf{\tilde{f}}_i - \tilde{W}_i|_2^2=2 - 2\mathbf{\tilde{x}}^T\mathbf{\tilde{y}}$, 则有规范化的欧氏距离：</p>
+<h1 id="重塑-Metric-Learning"><a href="#重塑-Metric-Learning" class="headerlink" title="重塑 Metric Learning"></a>重塑 Metric Learning</h1><p>由 $|\mathbf{\tilde{f}}_i - \tilde{W}_i|_2^2=2 - 2\mathbf{\tilde{x}}^T\mathbf{\tilde{y}}$, 则有规范化的欧氏距离：</p>
 <p><img src="/2018/09/11/NormFace/equ9.png" alt="equ9"></p>
 <p>定义 $\tilde{W}_i$ 为第 i 类的代理 (agent)， 修改后分类版的 contrastive loss:</p>
 <p><img src="/2018/09/11/NormFace/equ10.png" alt="equ10"></p>
 <p>triplet loss:</p>
 <p><img src="/2018/09/11/NormFace/equ11.png" alt="equ11"></p>
 <p>需要注意的是，如果使用原始版本一样的 margin, 那么有些临界特征不能被很好分类。所以需要设置更大的 margin.</p>
-<h1>Experiments</h1>
-<ul>
+<h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><ul>
 <li>features 和 weights 的列向量采用 L2-normalization.</li>
 </ul>
 
@@ -619,7 +612,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -630,7 +623,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -674,7 +667,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">L2 Normalization Layer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#归一化必要性"><span class="nav-number">2.1.</span> <span class="nav-text">归一化必要性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#层定义"><span class="nav-number">2.2.</span> <span class="nav-text">层定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改写-softmax-loss"><span class="nav-number">2.3.</span> <span class="nav-text">改写 Softmax loss</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">重塑 Metric Learning</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">Experiments</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#L2-Normalization-Layer"><span class="nav-number">2.</span> <span class="nav-text">L2 Normalization Layer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#归一化必要性"><span class="nav-number">2.1.</span> <span class="nav-text">归一化必要性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#层定义"><span class="nav-number">2.2.</span> <span class="nav-text">层定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改写-Softmax-loss"><span class="nav-number">2.3.</span> <span class="nav-text">改写 Softmax loss</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重塑-Metric-Learning"><span class="nav-number">3.</span> <span class="nav-text">重塑 Metric Learning</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Experiments"><span class="nav-number">4.</span> <span class="nav-text">Experiments</span></a></li></ol></div>
             
 
           </div>

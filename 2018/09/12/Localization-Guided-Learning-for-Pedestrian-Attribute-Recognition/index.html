@@ -437,7 +437,7 @@
         <p>Liu, P., Liu, X., Yan, J., &amp; Shao, J. (2018). Localization Guided Learning for Pedestrian Attribute Recognition. arXiv preprint arXiv:1808.09102.</p>
 <p><img src="/2018/09/12/Localization-Guided-Learning-for-Pedestrian-Attribute-Recognition/LGN.png" alt="LGN" title="Localization Guided Network"></p>
 <a id="more"></a>
-<p><strong>面临问题</strong>： 难以定位不同属性的区域</p>
+<p><strong>面临问题</strong>： 难以定位不同属性的区域  </p>
 <p><strong>解决方法</strong>： 提出 Localization Guided Network, 根据属性位置和预提取的 proposals给特定属性分配局部特征.</p>
 <p><strong>优势</strong>: 每个属性的特征自动学习，并能和全局特征进行交互。</p>
 <p>许多方法将行人属性识别当成 multi-label 分类问题。基于深度学习的方法面临的挑战有:</p>
@@ -446,16 +446,11 @@
 <li>相对与人体，属性变化尺度大，小尺寸属性难以分类</li>
 <li>行人与监控相机的角度和距离，行人检测算法的性能，导致性能的尺度和视角变化多段</li>
 </ul>
-<h1>网络结构</h1>
-<p>目的: 提取和使用属性位置出的局部特征。</p>
+<h1 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h1><p>目的: 提取和使用属性位置出的局部特征。</p>
 <p>Localization Guided Network 由两个分支构成，即全局分支和局部分支。(1) 全局分支使用图像级别的输入，生成所有属性的位置信息；（2）局部分支使用位置信息预测属性。两个分支均使用调整后的 Inception-v2 结构，其原因在与该网络具有多尺度特征提取的的作用。</p>
-<h2 id="全局特征提取"><a class="header-anchor" href="#全局特征提取"></a>全局特征提取</h2>
-<p><strong>输入为整张图像，提取类别的激活图谱</strong><br>
-原始的 CAM 方法输出特征图的加权和作为某类的激活图 (class activation map). 在训练和测试过程中，全局分支的参数固定用于生成激活图。在获取激活图之后，通过裁切激活图中的高响应区域作为每个属性对应的激活框(activation box)。</p>
-<h2 id="局部特征提取"><a class="header-anchor" href="#局部特征提取"></a>局部特征提取</h2>
-<p>局部分支使用 EdgeBoxes 算法提取候选框，使用 ROI pooling 层提取局部特征。提取的局部特征传入 inception-5b, 后接 Global Average Pooling.</p>
-<h2 id="位置引导模块"><a class="header-anchor" href="#位置引导模块"></a>位置引导模块</h2>
-<p>不同的候选框对属性的影响是不一样的，不同的属性聚焦的位置也不一样。</p>
+<h2 id="全局特征提取"><a href="#全局特征提取" class="headerlink" title="全局特征提取"></a>全局特征提取</h2><p><strong>输入为整张图像，提取类别的激活图谱</strong><br>原始的 CAM 方法输出特征图的加权和作为某类的激活图 (class activation map). 在训练和测试过程中，全局分支的参数固定用于生成激活图。在获取激活图之后，通过裁切激活图中的高响应区域作为每个属性对应的激活框(activation box)。</p>
+<h2 id="局部特征提取"><a href="#局部特征提取" class="headerlink" title="局部特征提取"></a>局部特征提取</h2><p>局部分支使用 EdgeBoxes 算法提取候选框，使用 ROI pooling 层提取局部特征。提取的局部特征传入 inception-5b, 后接 Global Average Pooling.</p>
+<h2 id="位置引导模块"><a href="#位置引导模块" class="headerlink" title="位置引导模块"></a>位置引导模块</h2><p>不同的候选框对属性的影响是不一样的，不同的属性聚焦的位置也不一样。</p>
 <p>Global stream:</p>
 <p><img src="/2018/09/12/Localization-Guided-Learning-for-Pedestrian-Attribute-Recognition/equ1.png" alt="LGN" title="Localization Guided Network"></p>
 <p>Local stream:</p>
@@ -584,7 +579,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -595,7 +590,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -639,7 +634,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">网络结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#全局特征提取"><span class="nav-number">1.1.</span> <span class="nav-text">全局特征提取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#局部特征提取"><span class="nav-number">1.2.</span> <span class="nav-text">局部特征提取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位置引导模块"><span class="nav-number">1.3.</span> <span class="nav-text">位置引导模块</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络结构"><span class="nav-number">1.</span> <span class="nav-text">网络结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#全局特征提取"><span class="nav-number">1.1.</span> <span class="nav-text">全局特征提取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#局部特征提取"><span class="nav-number">1.2.</span> <span class="nav-text">局部特征提取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位置引导模块"><span class="nav-number">1.3.</span> <span class="nav-text">位置引导模块</span></a></li></ol></li></ol></div>
             
 
           </div>

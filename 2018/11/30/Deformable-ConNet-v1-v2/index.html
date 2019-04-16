@@ -109,17 +109,17 @@
 
 
 
-<meta name="description" content="Type Formula     Regular Convolution $y§ = \sum_{k=1}^K w_k * x(p + p_k)$   Deformable ConvNet v1 $y§ = \sum_{k=1}^K w_k * x(p + p_k + \Delta p_k)$   Deformable ConvNet v2 $y§ = \sum_{k=1}^K w_k *">
+<meta name="description" content="Type Formula     Regular Convolution $y(p) = \sum_{k=1}^K w_k * x(p + p_k)$   Deformable ConvNet v1 $y(p) = \sum_{k=1}^K w_k * x(p + p_k + \Delta p_k)$   Deformable ConvNet v2 $y(p) = \sum_{k=1}^K">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Deformable ConNet V1 &amp; V2 ">
 <meta property="og:url" content="http://yoursite.com/2018/11/30/Deformable-ConNet-v1-v2/index.html">
 <meta property="og:site_name" content="Terry Wu">
-<meta property="og:description" content="Type Formula     Regular Convolution $y§ = \sum_{k=1}^K w_k * x(p + p_k)$   Deformable ConvNet v1 $y§ = \sum_{k=1}^K w_k * x(p + p_k + \Delta p_k)$   Deformable ConvNet v2 $y§ = \sum_{k=1}^K w_k *">
+<meta property="og:description" content="Type Formula     Regular Convolution $y(p) = \sum_{k=1}^K w_k * x(p + p_k)$   Deformable ConvNet v1 $y(p) = \sum_{k=1}^K w_k * x(p + p_k + \Delta p_k)$   Deformable ConvNet v2 $y(p) = \sum_{k=1}^K">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-11-30T07:49:55.168Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Deformable ConNet V1 &amp; V2 ">
-<meta name="twitter:description" content="Type Formula     Regular Convolution $y§ = \sum_{k=1}^K w_k * x(p + p_k)$   Deformable ConvNet v1 $y§ = \sum_{k=1}^K w_k * x(p + p_k + \Delta p_k)$   Deformable ConvNet v2 $y§ = \sum_{k=1}^K w_k *">
+<meta name="twitter:description" content="Type Formula     Regular Convolution $y(p) = \sum_{k=1}^K w_k * x(p + p_k)$   Deformable ConvNet v1 $y(p) = \sum_{k=1}^K w_k * x(p + p_k + \Delta p_k)$   Deformable ConvNet v2 $y(p) = \sum_{k=1}^K">
 
 
 
@@ -428,7 +428,8 @@
       
 
       
-        <table>
+        <div class="table-container">
+<table>
 <thead>
 <tr>
 <th style="text-align:left">Type</th>
@@ -438,18 +439,19 @@
 <tbody>
 <tr>
 <td style="text-align:left">Regular Convolution</td>
-<td style="text-align:left">$y§ = \sum_{k=1}^K w_k * x(p + p_k)$</td>
+<td style="text-align:left">$y(p) = \sum_{k=1}^K w_k * x(p + p_k)$</td>
 </tr>
 <tr>
 <td style="text-align:left">Deformable ConvNet v1</td>
-<td style="text-align:left">$y§ = \sum_{k=1}^K w_k * x(p + p_k + \Delta p_k)$</td>
+<td style="text-align:left">$y(p) = \sum_{k=1}^K w_k * x(p + p_k + \Delta p_k)$</td>
 </tr>
 <tr>
 <td style="text-align:left">Deformable ConvNet v2</td>
-<td style="text-align:left">$y§ = \sum_{k=1}^K w_k * x(p + p_k + \Delta p_k) * \Delta m_k$</td>
+<td style="text-align:left">$y(p) = \sum_{k=1}^K w_k <em> x(p + p_k + \Delta p_k) </em> \Delta m_k$</td>
 </tr>
 </tbody>
 </table>
+</div>
 
       
     </div>
@@ -557,7 +559,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -568,7 +570,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
