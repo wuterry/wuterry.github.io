@@ -6,10 +6,10 @@
 
 
 <html class="theme-next gemini use-motion" lang="">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -24,8 +24,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -44,7 +44,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -78,9 +78,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
@@ -98,7 +98,7 @@
 
 
 
-  <meta name="keywords" content="Face Recognition,GAN,Face Frontalization,Face Normalization," />
+  <meta name="keywords" content="Face Recognition,GAN,Face Frontalization,Face Normalization,">
 
 
 
@@ -109,13 +109,13 @@
 
 
 
-<meta name="description" content="概述人脸姿态不变处理方法可以分为两类:  手工构造或学习姿态不变特征: 此类方法主要存在两个问题, 一是需要在不变性和可区分性之间找到平衡, 因此对于大的姿态变化性能不好; 二是数据通常呈现重尾分布, 某些情形下模型泛化能力有限;   合成正脸人脸图像: 主要包含两类方法, (1) 3D 几何变换法, 该类方法难以有效恢复人脸细节; (2) 数据驱动方法, 如 VAE, GAN-based 的方法">
+<meta name="description" content="概述 人脸姿态不变处理方法可以分为两类:  手工构造或学习姿态不变特征: 此类方法主要存在两个问题, 一是需要在不变性和可区分性之间找到平衡, 因此对于大的姿态变化性能不好; 二是数据通常呈现重尾分布, 某些情形下模型泛化能力有限; 合成正脸人脸图像: 主要包含两类方法, (1) 3D 几何变换法, 该类方法难以有效恢复人脸细节; (2) 数据驱动方法, 如 VAE, GAN-based 的方法.">
 <meta name="keywords" content="Face Recognition,GAN,Face Frontalization,Face Normalization">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Face Synthesis">
 <meta property="og:url" content="http://yoursite.com/2019/04/08/Face-Synthesis/index.html">
 <meta property="og:site_name" content="Terry Wu">
-<meta property="og:description" content="概述人脸姿态不变处理方法可以分为两类:  手工构造或学习姿态不变特征: 此类方法主要存在两个问题, 一是需要在不变性和可区分性之间找到平衡, 因此对于大的姿态变化性能不好; 二是数据通常呈现重尾分布, 某些情形下模型泛化能力有限;   合成正脸人脸图像: 主要包含两类方法, (1) 3D 几何变换法, 该类方法难以有效恢复人脸细节; (2) 数据驱动方法, 如 VAE, GAN-based 的方法">
+<meta property="og:description" content="概述 人脸姿态不变处理方法可以分为两类:  手工构造或学习姿态不变特征: 此类方法主要存在两个问题, 一是需要在不变性和可区分性之间找到平衡, 因此对于大的姿态变化性能不好; 二是数据通常呈现重尾分布, 某些情形下模型泛化能力有限; 合成正脸人脸图像: 主要包含两类方法, (1) 3D 几何变换法, 该类方法难以有效恢复人脸细节; (2) 数据驱动方法, 如 VAE, GAN-based 的方法.">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/04/08/Face-Synthesis/2019-04-13-23-38-06.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/08/Face-Synthesis/2019-04-10-09-29-57.png">
@@ -131,7 +131,7 @@
 <meta property="og:updated_time" content="2019-04-14T03:22:54.539Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Face Synthesis">
-<meta name="twitter:description" content="概述人脸姿态不变处理方法可以分为两类:  手工构造或学习姿态不变特征: 此类方法主要存在两个问题, 一是需要在不变性和可区分性之间找到平衡, 因此对于大的姿态变化性能不好; 二是数据通常呈现重尾分布, 某些情形下模型泛化能力有限;   合成正脸人脸图像: 主要包含两类方法, (1) 3D 几何变换法, 该类方法难以有效恢复人脸细节; (2) 数据驱动方法, 如 VAE, GAN-based 的方法">
+<meta name="twitter:description" content="概述 人脸姿态不变处理方法可以分为两类:  手工构造或学习姿态不变特征: 此类方法主要存在两个问题, 一是需要在不变性和可区分性之间找到平衡, 因此对于大的姿态变化性能不好; 二是数据通常呈现重尾分布, 某些情形下模型泛化能力有限; 合成正脸人脸图像: 主要包含两类方法, (1) 3D 几何变换法, 该类方法难以有效恢复人脸细节; (2) 数据驱动方法, 如 VAE, GAN-based 的方法.">
 <meta name="twitter:image" content="http://yoursite.com/2019/04/08/Face-Synthesis/2019-04-13-23-38-06.png">
 
 
@@ -162,7 +162,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/08/Face-Synthesis/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/04/08/Face-Synthesis/">
 
 
 
@@ -180,7 +180,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
 
   
   
@@ -190,13 +190,13 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Terry Wu</span>
         <span class="logo-line-after"><i></i></span>
@@ -226,7 +226,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             Home
           </a>
@@ -236,7 +236,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             About
           </a>
@@ -246,7 +246,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             Tags
           </a>
@@ -256,7 +256,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             Categories
           </a>
@@ -266,7 +266,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             Archives
           </a>
@@ -279,7 +279,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             Search
           </a>
@@ -300,9 +300,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -334,20 +332,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/08/Face-Synthesis/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Terry Wu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Terry Wu">
     </span>
 
@@ -379,7 +377,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -390,7 +388,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/Image-Synthesis/" itemprop="url" rel="index">
                     <span itemprop="name">Image Synthesis</span>
                   </a>
@@ -422,7 +420,7 @@
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
             </span>
           
 
@@ -443,10 +441,11 @@
       
 
       
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>人脸姿态不变处理方法可以分为两类:</p>
+        <h1>概述</h1>
+<p>人脸姿态不变处理方法可以分为两类:</p>
 <ul>
-<li><strong>手工构造或学习姿态不变特征</strong>: 此类方法主要存在两个问题, 一是需要在不变性和可区分性之间找到平衡, 因此对于大的姿态变化性能不好; 二是数据通常呈现重尾分布, 某些情形下模型泛化能力有限;  </li>
-<li><strong>合成正脸人脸图像</strong>: 主要包含两类方法, (1) 3D 几何变换法, 该类方法难以有效恢复人脸细节; (2) 数据驱动方法, 如 VAE, GAN-based 的方法. 基于 GAN 的方法是我们重点关注和讨论的方法, </li>
+<li><strong>手工构造或学习姿态不变特征</strong>: 此类方法主要存在两个问题, 一是需要在不变性和可区分性之间找到平衡, 因此对于大的姿态变化性能不好; 二是数据通常呈现重尾分布, 某些情形下模型泛化能力有限;</li>
+<li><strong>合成正脸人脸图像</strong>: 主要包含两类方法, (1) 3D 几何变换法, 该类方法难以有效恢复人脸细节; (2) 数据驱动方法, 如 VAE, GAN-based 的方法. 基于 GAN 的方法是我们重点关注和讨论的方法,</li>
 </ul>
 <p><img src="/2019/04/08/Face-Synthesis/2019-04-13-23-38-06.png" alt=""></p>
 <p>正脸合成问题理解:</p>
@@ -455,7 +454,9 @@
 </ul>
 <a id="more"></a>
 <hr>
-<h1 id="方法总结"><a href="#方法总结" class="headerlink" title="方法总结"></a>方法总结</h1><h2 id="TP-GAN"><a href="#TP-GAN" class="headerlink" title="TP-GAN"></a>TP-GAN</h2><blockquote>
+<h1>方法总结</h1>
+<h2 id="tp-gan"><a class="header-anchor" href="#tp-gan"></a>TP-GAN</h2>
+<blockquote>
 <p>Beyond Face Rotation: Global and Local Perception GAN for Photorealistic and Identity Preserving Frontal View Synthesis, 2017, ICCV.</p>
 </blockquote>
 <p><img src="/2019/04/08/Face-Synthesis/2019-04-10-09-29-57.png" alt="Framework of TP-GAN"></p>
@@ -469,56 +470,83 @@
 </ul>
 <blockquote>
 <p>符号定义:</p>
+</blockquote>
 <ul>
 <li>$I^F$: 正脸图像 (frontal image)</li>
 <li>$I^P$: 侧脸图像 (profile image)</li>
-<li>$D<em>{\theta_D}$: 鉴别器, 区分 $I^F$ 和 $G</em>{\theta_G} (I^P)$</li>
+<li>$D_{\theta_D}$: 鉴别器, 区分 $I^F$ 和 $G_{\theta_G} (I^P)$</li>
 </ul>
+<blockquote>
 <p>数据需求: ${I^F, I^P}$ 图像对</p>
 </blockquote>
-<h3 id="网络结构特点"><a href="#网络结构特点" class="headerlink" title="网络结构特点"></a>网络结构特点</h3><p>Insight: 由于整幅图像的所有空间位置共享滤波器, 因此全局网络无法有效恢复局部细节和旋转人脸.</p>
-<h4 id="生成网络"><a href="#生成网络" class="headerlink" title="生成网络"></a>生成网络</h4><p>1) 全局生成器 $G_{\theta^g}$</p>
+<h3 id="网络结构特点"><a class="header-anchor" href="#网络结构特点"></a>网络结构特点</h3>
+<p>Insight: 由于整幅图像的所有空间位置共享滤波器, 因此全局网络无法有效恢复局部细节和旋转人脸.</p>
+<h4 id="生成网络"><a class="header-anchor" href="#生成网络"></a>生成网络</h4>
+<ol>
+<li>全局生成器 $G_{\theta^g}$</li>
+</ol>
 <ul>
-<li>包含降采样生成器 $G<em>{\theta_E^g}$ 和升采样解码器 $G</em>{\theta_D^g}$;</li>
+<li>包含降采样生成器 $G_{\theta_E^g}$ 和升采样解码器 $G_{\theta_D^g}$;</li>
 <li>引入 skip layers 的目的在于多尺度融合;</li>
 <li>中间输出为 256 维的特征向量 $v_{id}$, 用于identity classification. 此外, 连接 100维高斯随机噪声建模不止于姿态和 ID 的变化.</li>
 </ul>
-<p>2) 局部生成器 $G_{\theta^l}$</p>
+<ol start="2">
+<li>局部生成器 $G_{\theta^l}$</li>
+</ol>
 <ul>
 <li>每个 $G_{\theta_i^l}$, $i \in {0, 1, 2, 3}$ 皆采样 Encoder-Decoder 结构, 但是没有全连接的 bottleneck layer.</li>
 </ul>
-<p>3) 信息融合</p>
+<ol start="3">
+<li>信息融合</li>
+</ol>
 <ul>
-<li>融合四个局部通路为一个特征张量<ul>
+<li>融合四个局部通路为一个特征张量
+<ul>
 <li>template landmark location</li>
 <li>max-out 融合策略减少拼接伪影</li>
 </ul>
 </li>
 <li>融合全局和局部特征张量</li>
 </ul>
-<h4 id="对抗网络"><a href="#对抗网络" class="headerlink" title="对抗网络"></a>对抗网络</h4><p>采用交替训练方式训练 $D{\theta<em>D}$ 和 $G</em>{\theta_G} (I^P)$. </p>
+<h4 id="对抗网络"><a class="header-anchor" href="#对抗网络"></a>对抗网络</h4>
+<p>采用交替训练方式训练 $D{\theta_D}$ 和 $G_{\theta_G} (I^P)$.</p>
 <p>$D_{\theta_D}$ 输出采用 2x2 的概率图替代 1 维标量. 每个概率值对应某个人脸的区域而非整个人脸, 从而聚焦到每个语义区域.</p>
-<h4 id="合成损失函数"><a href="#合成损失函数" class="headerlink" title="合成损失函数"></a>合成损失函数</h4><p>1) Pixel-wise Loss</p>
+<h4 id="合成损失函数"><a class="header-anchor" href="#合成损失函数"></a>合成损失函数</h4>
+<ol>
+<li>Pixel-wise Loss</li>
+</ol>
 <ul>
 <li>pixel-wise L1 loss</li>
 <li>应用点: global 网络, local 网络, 最终输出</li>
 </ul>
 <p><img src="/2019/04/08/Face-Synthesis/2019-04-10-14-08-10.png" alt=""></p>
-<p>2) Symmetry Loss</p>
+<ol start="2">
+<li>Symmetry Loss</li>
+</ol>
 <ul>
 <li>利用人脸的对称性解决自遮挡问题</li>
 <li>应用点: 原始像素空间和 Laplacian 图像空间 (对光照变化不敏感);</li>
 <li>操作方式: 选择性水平翻转输入数据, 使得遮挡部分处于右侧; 另外, 仅 $I^{pred}$ 参与对称损失计算</li>
 </ul>
 <p><img src="/2019/04/08/Face-Synthesis/2019-04-10-12-46-01.png" alt=""></p>
-<p>3) Adversarial Loss<br><img src="/2019/04/08/Face-Synthesis/2019-04-10-14-07-18.png" alt=""></p>
-<p>4) Identity Preserving Loss<br><img src="/2019/04/08/Face-Synthesis/2019-04-10-14-07-00.png" alt=""></p>
+<ol start="3">
+<li>
+<p>Adversarial Loss<br>
+<img src="/2019/04/08/Face-Synthesis/2019-04-10-14-07-18.png" alt=""></p>
+</li>
+<li>
+<p>Identity Preserving Loss<br>
+<img src="/2019/04/08/Face-Synthesis/2019-04-10-14-07-00.png" alt=""></p>
+</li>
+</ol>
 <hr>
-<h2 id="PIM"><a href="#PIM" class="headerlink" title="PIM"></a>PIM</h2><blockquote>
+<h2 id="pim"><a class="header-anchor" href="#pim"></a>PIM</h2>
+<blockquote>
 <p>Towards Pose Invariant Face Recognition in the Wild, 2018, CVPR</p>
 </blockquote>
 <ul>
-<li><p>创新点:</p>
+<li>
+<p>创新点:</p>
 <ul>
 <li>正脸化子网络 (FFN) 和鉴别学习子网络 (DLN) 端到端联合优化;</li>
 <li>FFN 采用双路径 GAN, 同时感知全局结构和局部细节;</li>
@@ -527,88 +555,110 @@
 </li>
 </ul>
 <hr>
-<h2 id="CAPG-GAN"><a href="#CAPG-GAN" class="headerlink" title="CAPG-GAN"></a>CAPG-GAN</h2><blockquote>
+<h2 id="capg-gan"><a class="header-anchor" href="#capg-gan"></a>CAPG-GAN</h2>
+<blockquote>
 <p>Pose-Guided Photorealistic Face Rotation, 2018, CVPR</p>
 </blockquote>
 <p>CAPG-GAN: Couple-Agent Pose-Guided Generative Adversarial Network</p>
 <p><img src="/2019/04/08/Face-Synthesis/2019-04-10-15-39-35.png" alt=""></p>
 <blockquote>
 <p>创新点:</p>
+</blockquote>
 <ul>
 <li>合成任意视角人脸;</li>
 <li>使用 landmark heatmaps 作为姿态引导生成器的控制信号合成人脸;</li>
 <li>偶联鉴别器 (Couple-Agent Discriminator) 有效利用了姿态和局部结构的领域先验知识,强化合成图像真实性;</li>
 </ul>
-</blockquote>
-<h3 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h3><h4 id="Pose-Guided-Generator"><a href="#Pose-Guided-Generator" class="headerlink" title="Pose-Guided Generator"></a>Pose-Guided Generator</h4><ul>
+<h3 id="网络结构"><a class="header-anchor" href="#网络结构"></a>网络结构</h3>
+<h4 id="pose-guided-generator"><a class="header-anchor" href="#pose-guided-generator"></a>Pose-Guided Generator</h4>
+<ul>
 <li>生成器 $G_{\theta_G}$ 采用 U-Net 结构;</li>
 <li>landmark detector 离线获得 landmark 信息;</li>
 <li>5 个关键点的 heatmaps 编码为 pose embeddings;</li>
 </ul>
-<h4 id="Couple-Agent-Discriminator"><a href="#Couple-Agent-Discriminator" class="headerlink" title="Couple-Agent Discriminator"></a>Couple-Agent Discriminator</h4><p><strong>Agent 1</strong></p>
+<h4 id="couple-agent-discriminator"><a class="header-anchor" href="#couple-agent-discriminator"></a>Couple-Agent Discriminator</h4>
+<p><strong>Agent 1</strong></p>
 <ul>
-<li>将源图像 $I^a$ 作为条件, 生成器输出 $\hat{I}_b$ (或者目标自然图像 $I^b$) 与 $I^a$ 组成图像对作为输入; </li>
+<li>将源图像 $I^a$ 作为条件, 生成器输出 $\hat{I}_b$ (或者目标自然图像 $I^b$) 与 $I^a$ 组成图像对作为输入;</li>
 <li>同 TP-GAN 类似, 输入图像对映射为概率图, 概率图中的每个位置对应这局部区域</li>
 </ul>
 <p>因此, Agent 1 不但能区分合成人脸和真实人脸, 还能学习旋转姿态的差异.</p>
-<p><strong>Agent 2</strong><br>结构同 Agent 1, 不同的是将 pose embeddings $P^b$ 作为条件, 生成器输出 $\hat{I}_b$ (或者目标自然图像 $I^b$) 与 $P^b$ 组成输入对.</p>
-<h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p>包含了四个损失, 分别是</p>
+<p><strong>Agent 2</strong><br>
+结构同 Agent 1, 不同的是将 pose embeddings $P^b$ 作为条件, 生成器输出 $\hat{I}_b$ (或者目标自然图像 $I^b$) 与 $P^b$ 组成输入对.</p>
+<h3 id="损失函数"><a class="header-anchor" href="#损失函数"></a>损失函数</h3>
+<p>包含了四个损失, 分别是</p>
 <ul>
 <li>multi-scale pixel-wise loss: 约束图像内容的一致性</li>
 <li>conditional adversarial loss ($L_{adv}$): 整合领域先验</li>
 <li>identity preserving loss: 使用预训练的 light-CNN 作为特征提取器.</li>
 <li>total variation regularization: 旨在减轻图像伪影.</li>
 </ul>
-<h3 id="Ablation-Study"><a href="#Ablation-Study" class="headerlink" title="Ablation Study"></a>Ablation Study</h3><p><img src="/2019/04/08/Face-Synthesis/2019-04-10-17-23-51.png" alt=""></p>
+<h3 id="ablation-study"><a class="header-anchor" href="#ablation-study"></a>Ablation Study</h3>
+<p><img src="/2019/04/08/Face-Synthesis/2019-04-10-17-23-51.png" alt=""></p>
 <p>一些结论:</p>
 <ul>
 <li>无 $L_{adv}$, 生成的图像很模糊;</li>
 <li>identity preserving loss 对模型性能影响最大, total variation regularization 影响最小.</li>
 </ul>
 <hr>
-<h2 id="FaceFeat-GAN"><a href="#FaceFeat-GAN" class="headerlink" title="FaceFeat-GAN"></a>FaceFeat-GAN</h2><p><em>FaceFeat-GAN: a Two-Stage Approach for Identity-Preserving Face Synthesis</em> (2018-arXiv)</p>
+<h2 id="facefeat-gan"><a class="header-anchor" href="#facefeat-gan"></a>FaceFeat-GAN</h2>
+<p><em>FaceFeat-GAN: a Two-Stage Approach for Identity-Preserving Face Synthesis</em> (2018-arXiv)</p>
 <p>目的: 合成丰富多样且身份不便的人脸.</p>
 <p>方法: 两阶段合成法, 第一阶段生成不同特征, 第二阶段为特征到图像渲染.</p>
-<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>Previous works:</p>
+<h3 id="introduction"><a class="header-anchor" href="#introduction"></a>Introduction</h3>
+<p>Previous works:</p>
 <ul>
-<li><p>将 identity label 喂给生成器 G 引导合成过程. \<br>缺点: facial identity 十分复杂, 仅仅将 identity label 作为监督是不够的, 无法合成高质量图像;</p>
+<li>
+<p>将 identity label 喂给生成器 G 引导合成过程. <br>
+缺点: facial identity 十分复杂, 仅仅将 identity label 作为监督是不够的, 无法合成高质量图像;</p>
 </li>
-<li><p>利用相同 ID 的图像对, 如 TP-GAN, FF-GAN. \<br>缺点: 限制了图像的多样性.</p>
+<li>
+<p>利用相同 ID 的图像对, 如 TP-GAN, FF-GAN. <br>
+缺点: 限制了图像的多样性.</p>
 </li>
 </ul>
 <p>Proposed method:</p>
 <p><img src="/2019/04/08/Face-Synthesis/2019-04-08-11-47-01.png" alt=""></p>
 <ul>
-<li><p>第一阶段: 引入一组<strong>特征生成器</strong> ${G<em>i^f}</em>{i=1}^k$ 生成一组人脸特征 ${\textbf{f}<em>i^s}</em>{i=1}^k$. 其中 $k$ 表示生成器的个数, 每个生成器对应不同的人脸属性, 如姿态, 表情, 年龄等;</p>
+<li>
+<p>第一阶段: 引入一组<strong>特征生成器</strong> ${G_i<sup>f}_{i=1}</sup>k$ 生成一组人脸特征 ${\textbf{f}_i<sup>s}_{i=1}</sup>k$. 其中 $k$ 表示生成器的个数, 每个生成器对应不同的人脸属性, 如姿态, 表情, 年龄等;</p>
 </li>
-<li><p>第二阶段: <strong>图像生成器</strong> $G^I$ 将所有生成的特征作为输入, 并输出合成图像. </p>
+<li>
+<p>第二阶段: <strong>图像生成器</strong> $G^I$ 将所有生成的特征作为输入, 并输出合成图像.</p>
 </li>
-<li><p>$G_i^f$ 与 $D_i^f$ 在语义特征域对抗合成人脸特征, $G^I$ 和 $D^I$ 在图像域中对抗, 生成人脸图像.</p>
+<li>
+<p>$G_i^f$ 与 $D_i^f$ 在语义特征域对抗合成人脸特征, $G^I$ 和 $D^I$ 在图像域中对抗, 生成人脸图像.</p>
 </li>
 </ul>
-<h3 id="Related-Works"><a href="#Related-Works" class="headerlink" title="Related Works"></a>Related Works</h3><h4 id="Identity-Preserving-Face-Synthesis"><a href="#Identity-Preserving-Face-Synthesis" class="headerlink" title="Identity-Preserving Face Synthesis"></a>Identity-Preserving Face Synthesis</h4><ul>
-<li>FaceID-GAN: 三方博弈, 生成器 G 与鉴别器 D 博弈生成图像, 与 ID 分类器 C 博弈保持 ID 信息. </li>
+<h3 id="related-works"><a class="header-anchor" href="#related-works"></a>Related Works</h3>
+<h4 id="identity-preserving-face-synthesis"><a class="header-anchor" href="#identity-preserving-face-synthesis"></a>Identity-Preserving Face Synthesis</h4>
+<ul>
+<li>FaceID-GAN: 三方博弈, 生成器 G 与鉴别器 D 博弈生成图像, 与 ID 分类器 C 博弈保持 ID 信息.</li>
 </ul>
 <p>由于像素级监督导致生成的多样性降低, 应用范围有限. 这些方法通常只能处理多对一的情形, 如正脸化.</p>
-<h4 id="VAE"><a href="#VAE" class="headerlink" title="VAE"></a>VAE</h4><ul>
+<h4 id="vae"><a class="header-anchor" href="#vae"></a>VAE</h4>
+<ul>
 <li>Attribute2image: 缺点, 生成图像模糊 (缺少鉴别器).</li>
 <li>CVAE-GAN: 联合条件 GAN 和条件 VAE. 由于解码器忽略了输入的随机性, 限制了生成结果的多样性.</li>
 <li>Towards Open-Set Identity Preserving Face Synthesis: 使用不同属性图像作为目标输出图像. 显而易见, 属性图像并不总是具有相同的 ID, 从而导致 ID 信息丢失.</li>
 </ul>
-<h3 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h3><p><img src="/2019/04/08/Face-Synthesis/2019-04-08-19-21-53.png" alt=""></p>
+<h3 id="methods"><a class="header-anchor" href="#methods"></a>Methods</h3>
+<p><img src="/2019/04/08/Face-Synthesis/2019-04-08-19-21-53.png" alt=""></p>
 <p>图像合成过程分解为两个阶段:</p>
 <ul>
-<li>第一阶段: 输入随机变量 ${\textbf{z}<em>i}</em>{i=1}^k$ 经过生成器组 ${G<em>i^f}</em>{i=1}^k$ 获得一组特征 ${\textbf{f}<em>i^s}</em>{i=1}^k$;</li>
-<li>第二阶段: 使用生成器 $G^I$ 解码特征组 ${\textbf{f}<em>i^s}</em>{i=1}^k$, 合成图像 $\textbf{x}^s$. 同时, $G^I$ 也利用 ID 特征 $\textbf{f}_{id}$ 获得 ID 信息.</li>
+<li>第一阶段: 输入随机变量 ${\textbf{z}<em>i}</em>{i=1}^k$ 经过生成器组 ${G_i<sup>f}_{i=1}</sup>k$ 获得一组特征 ${\textbf{f}_i<sup>s}_{i=1}</sup>k$;</li>
+<li>第二阶段: 使用生成器 $G^I$ 解码特征组 ${\textbf{f}<em>i<sup>s}_{i=1}</sup>k$, 合成图像 $\textbf{x}^s$. 同时, $G^I$ 也利用 ID 特征 $\textbf{f}</em>{id}$ 获得 ID 信息.</li>
 </ul>
 <p><img src="/2019/04/08/Face-Synthesis/2019-04-08-19-47-15.png" alt=""></p>
-<p>为了保证每个阶段合成结果的真实性, 引入了特征鉴别器 ${D<em>i^f}</em>{i=1}^k$ 和图像鉴别器 $D^I$.  </p>
-<p>与传统 GAN 不同的是, FaceFeat-GAN 不但生成 fake 图像, 还重建输入图像从而获得像素级监督信息. 特别地, 引入一组特征提取器 ${E<em>i}</em>{i=1}^k$ 从输入图像 $\textbf{x}^r$ 中提取特征 ${\textbf{f}<em>i^r}</em>{i=1}^k$, 人脸识别模块 $E<em>id$ 用于提取 ID 特征 $\textbf{f}</em>{id}$. 然后相同的 $G^I$ 将这些特征作为输入生成 $\textbf{x}^{rec}$. </p>
-<h4 id="特征提取器"><a href="#特征提取器" class="headerlink" title="特征提取器"></a>特征提取器</h4><ul>
-<li>3DMM 特征 $\textbf{f}_1^r=E_1(\textbf{x}^r)$ 建模姿态和表情;</li>
-<li>一般特征 $\textbf{f}_2^r=E_2(\textbf{x}^r)$ 表示其他人脸的变化.</li>
+<p>为了保证每个阶段合成结果的真实性, 引入了特征鉴别器 ${D_i<sup>f}_{i=1}</sup>k$ 和图像鉴别器 $D^I$.</p>
+<p>与传统 GAN 不同的是, FaceFeat-GAN 不但生成 fake 图像, 还重建输入图像从而获得像素级监督信息. 特别地, 引入一组特征提取器 ${E_i}_{i=1}^k$ 从输入图像 $\textbf{x}^r$ 中提取特征 ${\textbf{f}<em>i<sup>r}_{i=1}</sup>k$, 人脸识别模块 $E_id$ 用于提取 ID 特征 $\textbf{f}</em>{id}$. 然后相同的 $G^I$ 将这些特征作为输入生成 $\textbf{x}^{rec}$.</p>
+<h4 id="特征提取器"><a class="header-anchor" href="#特征提取器"></a>特征提取器</h4>
+<ul>
+<li>3DMM 特征 $\textbf{f}_1<sup>r=E_1(\textbf{x}</sup>r)$ 建模姿态和表情;</li>
+<li>一般特征 $\textbf{f}_2<sup>r=E_2(\textbf{x}</sup>r)$ 表示其他人脸的变化.</li>
 </ul>
-<p>(1) Identity 特征 $E<em>{id}(\textbf{x}^r)$ \<br> 编码 ID 信息. 用于提取输入图像 $\textbf{x}^r$ 的特征为 $\textbf{f}</em>{id}$. 模型训练过程采用交叉熵损失.</p>
+<p>(1) Identity 特征 $E_{id}(\textbf{x}^r)$ <br>
+编码 ID 信息. 用于提取输入图像 $\textbf{x}^r$ 的特征为 $\textbf{f}_{id}$. 模型训练过程采用交叉熵损失.</p>
 <p>(2) 3DMM 特征 $E_1(\textbf{x}_1^r)$</p>
 
       
@@ -655,6 +705,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/14/Large-Scale-Long-Tailed-Recognition-in-an-Open-World/" rel="prev" title="Large-Scale Long-Tailed Recognition in an Open World.md">
+                Large-Scale Long-Tailed Recognition in an Open World.md <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -721,7 +775,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">Terry Wu</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -734,7 +788,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -756,7 +810,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -789,7 +843,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法总结"><span class="nav-number">2.</span> <span class="nav-text">方法总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TP-GAN"><span class="nav-number">2.1.</span> <span class="nav-text">TP-GAN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网络结构特点"><span class="nav-number">2.1.1.</span> <span class="nav-text">网络结构特点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#生成网络"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">生成网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对抗网络"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">对抗网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合成损失函数"><span class="nav-number">2.1.1.3.</span> <span class="nav-text">合成损失函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PIM"><span class="nav-number">2.2.</span> <span class="nav-text">PIM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CAPG-GAN"><span class="nav-number">2.3.</span> <span class="nav-text">CAPG-GAN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网络结构"><span class="nav-number">2.3.1.</span> <span class="nav-text">网络结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Pose-Guided-Generator"><span class="nav-number">2.3.1.1.</span> <span class="nav-text">Pose-Guided Generator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Couple-Agent-Discriminator"><span class="nav-number">2.3.1.2.</span> <span class="nav-text">Couple-Agent Discriminator</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#损失函数"><span class="nav-number">2.3.2.</span> <span class="nav-text">损失函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ablation-Study"><span class="nav-number">2.3.3.</span> <span class="nav-text">Ablation Study</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FaceFeat-GAN"><span class="nav-number">2.4.</span> <span class="nav-text">FaceFeat-GAN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">2.4.1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Related-Works"><span class="nav-number">2.4.2.</span> <span class="nav-text">Related Works</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Identity-Preserving-Face-Synthesis"><span class="nav-number">2.4.2.1.</span> <span class="nav-text">Identity-Preserving Face Synthesis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VAE"><span class="nav-number">2.4.2.2.</span> <span class="nav-text">VAE</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Methods"><span class="nav-number">2.4.3.</span> <span class="nav-text">Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特征提取器"><span class="nav-number">2.4.3.1.</span> <span class="nav-text">特征提取器</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">方法总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#tp-gan"><span class="nav-number">2.1.</span> <span class="nav-text">TP-GAN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网络结构特点"><span class="nav-number">2.1.1.</span> <span class="nav-text">网络结构特点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#生成网络"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">生成网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对抗网络"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">对抗网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合成损失函数"><span class="nav-number">2.1.1.3.</span> <span class="nav-text">合成损失函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pim"><span class="nav-number">2.2.</span> <span class="nav-text">PIM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#capg-gan"><span class="nav-number">2.3.</span> <span class="nav-text">CAPG-GAN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网络结构"><span class="nav-number">2.3.1.</span> <span class="nav-text">网络结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#pose-guided-generator"><span class="nav-number">2.3.1.1.</span> <span class="nav-text">Pose-Guided Generator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#couple-agent-discriminator"><span class="nav-number">2.3.1.2.</span> <span class="nav-text">Couple-Agent Discriminator</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#损失函数"><span class="nav-number">2.3.2.</span> <span class="nav-text">损失函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ablation-study"><span class="nav-number">2.3.3.</span> <span class="nav-text">Ablation Study</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#facefeat-gan"><span class="nav-number">2.4.</span> <span class="nav-text">FaceFeat-GAN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#introduction"><span class="nav-number">2.4.1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#related-works"><span class="nav-number">2.4.2.</span> <span class="nav-text">Related Works</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#identity-preserving-face-synthesis"><span class="nav-number">2.4.2.1.</span> <span class="nav-text">Identity-Preserving Face Synthesis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vae"><span class="nav-number">2.4.2.2.</span> <span class="nav-text">VAE</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#methods"><span class="nav-number">2.4.3.</span> <span class="nav-text">Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特征提取器"><span class="nav-number">2.4.3.1.</span> <span class="nav-text">特征提取器</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>

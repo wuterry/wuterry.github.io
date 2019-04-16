@@ -6,10 +6,10 @@
 
 
 <html class="theme-next gemini use-motion" lang="">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -24,8 +24,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -44,7 +44,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -78,9 +78,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
@@ -98,7 +98,7 @@
 
 
 
-  <meta name="keywords" content="imbalance learning,class imbalance," />
+  <meta name="keywords" content="imbalance learning,class imbalance,long-tailed recognition,">
 
 
 
@@ -109,18 +109,18 @@
 
 
 
-<meta name="description" content="数据不平衡方法的整理.">
-<meta name="keywords" content="imbalance learning,class imbalance">
+<meta name="description" content="数据不平衡处理方法的整理.">
+<meta name="keywords" content="imbalance learning,class imbalance,long-tailed recognition">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Imbalance Learning">
 <meta property="og:url" content="http://yoursite.com/2018/12/29/Imbalance-Learning/index.html">
 <meta property="og:site_name" content="Terry Wu">
-<meta property="og:description" content="数据不平衡方法的整理.">
+<meta property="og:description" content="数据不平衡处理方法的整理.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-14T03:33:43.622Z">
+<meta property="og:updated_time" content="2019-04-14T14:02:16.374Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Imbalance Learning">
-<meta name="twitter:description" content="数据不平衡方法的整理.">
+<meta name="twitter:description" content="数据不平衡处理方法的整理.">
 
 
 
@@ -150,7 +150,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/12/29/Imbalance-Learning/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/29/Imbalance-Learning/">
 
 
 
@@ -168,7 +168,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
 
   
   
@@ -178,13 +178,13 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Terry Wu</span>
         <span class="logo-line-after"><i></i></span>
@@ -214,7 +214,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             Home
           </a>
@@ -224,7 +224,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             About
           </a>
@@ -234,7 +234,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             Tags
           </a>
@@ -244,7 +244,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             Categories
           </a>
@@ -254,7 +254,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             Archives
           </a>
@@ -267,7 +267,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             Search
           </a>
@@ -288,9 +288,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -322,20 +320,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/29/Imbalance-Learning/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Terry Wu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Terry Wu">
     </span>
 
@@ -367,7 +365,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -378,9 +376,9 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Imbalance-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Imbalance Learning</span>
                   </a>
                 </span>
 
@@ -410,7 +408,7 @@
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
             </span>
           
 
@@ -431,12 +429,21 @@
       
 
       
-        <p>数据不平衡方法的整理.</p>
+        <p>数据不平衡处理方法的整理.</p>
 <a id="more"></a>
-<h1 id="Data-based"><a href="#Data-based" class="headerlink" title="Data-based"></a>Data-based</h1><h2 id="sampling-methods"><a href="#sampling-methods" class="headerlink" title="sampling methods"></a>sampling methods</h2><h3 id="欠采样"><a href="#欠采样" class="headerlink" title="欠采样:"></a>欠采样:</h3><h3 id="过采样-SMOTE"><a href="#过采样-SMOTE" class="headerlink" title="过采样: SMOTE"></a>过采样: SMOTE</h3><h1 id="Algorithm-based"><a href="#Algorithm-based" class="headerlink" title="Algorithm-based"></a>Algorithm-based</h1><h2 id="Cost-Sensitive-Learning"><a href="#Cost-Sensitive-Learning" class="headerlink" title="Cost Sensitive Learning"></a>Cost Sensitive Learning</h2><h2 id="Theshold-adjustment"><a href="#Theshold-adjustment" class="headerlink" title="Theshold adjustment"></a>Theshold adjustment</h2><p>Generally, predicted label is positive when the score $s &gt; 0.5$. It’s reasonable when $num_pos:num_neg = 1: 1$. However, the score should be adjust with the change of ratio between the number of positive and negtive samples.</p>
+<h1>Data-based</h1>
+<h2 id="sampling-methods"><a class="header-anchor" href="#sampling-methods"></a>sampling methods</h2>
+<h3 id="欠采样"><a class="header-anchor" href="#欠采样"></a>欠采样:</h3>
+<h3 id="过采样-smote"><a class="header-anchor" href="#过采样-smote"></a>过采样: SMOTE</h3>
+<h1>Algorithm-based</h1>
+<h2 id="cost-sensitive-learning"><a class="header-anchor" href="#cost-sensitive-learning"></a>Cost Sensitive Learning</h2>
+<h2 id="theshold-adjustment"><a class="header-anchor" href="#theshold-adjustment"></a>Theshold adjustment</h2>
+<p>Generally, predicted label is positive when the score $s &gt; 0.5$. It’s reasonable when $num_pos:num_neg = 1: 1$. However, the score should be adjust with the change of ratio between the number of positive and negtive samples.</p>
 <p>We define $m^+$ is the number of positive samples, and $m^-$ is the number of negtive samples. The decision rule should be satified with</p>
-<script type="math/tex; mode=display">
-\frac{s}{1-s}=\frac{m^+}{m^-}</script><p>In implementation, we choose the optimal threshold by ROC curve.</p>
+<p>$$<br>
+\frac{s}{1-s}=\frac{m<sup>+}{m</sup>-}<br>
+$$</p>
+<p>In implementation, we choose the optimal threshold by ROC curve.</p>
 
       
     </div>
@@ -457,6 +464,8 @@
             <a href="/tags/imbalance-learning/" rel="tag"># imbalance learning</a>
           
             <a href="/tags/class-imbalance/" rel="tag"># class imbalance</a>
+          
+            <a href="/tags/long-tailed-recognition/" rel="tag"># long-tailed recognition</a>
           
         </div>
       
@@ -548,7 +557,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">Terry Wu</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -561,7 +570,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -583,7 +592,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -616,7 +625,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-based"><span class="nav-number">1.</span> <span class="nav-text">Data-based</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sampling-methods"><span class="nav-number">1.1.</span> <span class="nav-text">sampling methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#欠采样"><span class="nav-number">1.1.1.</span> <span class="nav-text">欠采样:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过采样-SMOTE"><span class="nav-number">1.1.2.</span> <span class="nav-text">过采样: SMOTE</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Algorithm-based"><span class="nav-number">2.</span> <span class="nav-text">Algorithm-based</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cost-Sensitive-Learning"><span class="nav-number">2.1.</span> <span class="nav-text">Cost Sensitive Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Theshold-adjustment"><span class="nav-number">2.2.</span> <span class="nav-text">Theshold adjustment</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Data-based</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sampling-methods"><span class="nav-number">1.1.</span> <span class="nav-text">sampling methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#欠采样"><span class="nav-number">1.1.1.</span> <span class="nav-text">欠采样:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过采样-smote"><span class="nav-number">1.1.2.</span> <span class="nav-text">过采样: SMOTE</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Algorithm-based</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cost-sensitive-learning"><span class="nav-number">2.1.</span> <span class="nav-text">Cost Sensitive Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#theshold-adjustment"><span class="nav-number">2.2.</span> <span class="nav-text">Theshold adjustment</span></a></li></ol></li></ol></div>
             
 
           </div>
