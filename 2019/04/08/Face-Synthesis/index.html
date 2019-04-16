@@ -119,16 +119,12 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/04/08/Face-Synthesis/2019-04-13-23-38-06.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/08/Face-Synthesis/2019-04-10-09-29-57.png">
-<meta property="og:image" content="http://yoursite.com/2019/04/08/Face-Synthesis/2019-04-10-14-08-10.png">
-<meta property="og:image" content="http://yoursite.com/2019/04/08/Face-Synthesis/2019-04-10-12-46-01.png">
-<meta property="og:image" content="http://yoursite.com/2019/04/08/Face-Synthesis/2019-04-10-14-07-18.png">
-<meta property="og:image" content="http://yoursite.com/2019/04/08/Face-Synthesis/2019-04-10-14-07-00.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/08/Face-Synthesis/2019-04-10-15-39-35.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/08/Face-Synthesis/2019-04-10-17-23-51.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/08/Face-Synthesis/2019-04-08-11-47-01.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/08/Face-Synthesis/2019-04-08-19-21-53.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/08/Face-Synthesis/2019-04-08-19-47-15.png">
-<meta property="og:updated_time" content="2019-04-14T03:22:54.539Z">
+<meta property="og:updated_time" content="2019-04-16T05:59:30.989Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Face Synthesis">
 <meta name="twitter:description" content="概述 人脸姿态不变处理方法可以分为两类:  手工构造或学习姿态不变特征: 此类方法主要存在两个问题, 一是需要在不变性和可区分性之间找到平衡, 因此对于大的姿态变化性能不好; 二是数据通常呈现重尾分布, 某些情形下模型泛化能力有限; 合成正脸人脸图像: 主要包含两类方法, (1) 3D 几何变换法, 该类方法难以有效恢复人脸细节; (2) 数据驱动方法, 如 VAE, GAN-based 的方法.">
@@ -517,26 +513,34 @@
 </ol>
 <ul>
 <li>pixel-wise L1 loss</li>
-<li>应用点: global 网络, local 网络, 最终输出</li>
+<li>应用点: global 网络, local 网络, 最终输出<br>
+$$<br>
+L_{\text {pixel}}=\frac{1}{W \times H} \sum_{x=1}^{W} \sum_{y=1}^{H}\left|I_{x, y}^{p r e d}-I_{x, y}^{g t}\right|<br>
+$$</li>
 </ul>
-<p><img src="/2019/04/08/Face-Synthesis/2019-04-10-14-08-10.png" alt=""></p>
-<ol start="2">
+<ol>
 <li>Symmetry Loss</li>
 </ol>
 <ul>
 <li>利用人脸的对称性解决自遮挡问题</li>
 <li>应用点: 原始像素空间和 Laplacian 图像空间 (对光照变化不敏感);</li>
-<li>操作方式: 选择性水平翻转输入数据, 使得遮挡部分处于右侧; 另外, 仅 $I^{pred}$ 参与对称损失计算</li>
+<li>操作方式: 选择性水平翻转输入数据, 使得遮挡部分处于右侧; 另外, 仅 $I^{pred}$ 参与对称损失计算<br>
+$$<br>
+L_{s y m}=\frac{1}{W / 2 \times H} \sum_{x=1}^{W / 2} \sum_{y=1}^{H}\left|I_{x, y}^{p r e d}-I_{W-(x-1), y}^{p r e d}\right|<br>
+$$</li>
 </ul>
-<p><img src="/2019/04/08/Face-Synthesis/2019-04-10-12-46-01.png" alt=""></p>
-<ol start="3">
+<ol>
 <li>
 <p>Adversarial Loss<br>
-<img src="/2019/04/08/Face-Synthesis/2019-04-10-14-07-18.png" alt=""></p>
+$$<br>
+L_{a d v}=\frac{1}{N} \sum_{n=1}^{N}-\log D_{\theta_{D}}\left(G_{\theta_{G}}\left(I_{n}^{P}\right)\right)<br>
+$$</p>
 </li>
 <li>
 <p>Identity Preserving Loss<br>
-<img src="/2019/04/08/Face-Synthesis/2019-04-10-14-07-00.png" alt=""></p>
+$$<br>
+L_{i p}=\sum_{i=1}^{2} \frac{1}{W_{i} \times H_{i}} \sum_{x=1}^{W_{i}} \sum_{y=1}<sup>{H_{i}}\left|F\left(I</sup>{P}\right)<em>{x, y}<sup>{i}-F\left(G\left(I</sup>{p r e d}\right)\right)</em>{x, y}^{i}\right|<br>
+$$</p>
 </li>
 </ol>
 <hr>
