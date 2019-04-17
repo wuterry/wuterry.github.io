@@ -423,9 +423,26 @@
 
       
         
-          
-            
-          
+          <p>多任务学习 (Multi-task Learning) 已应用到诸多任务, 例如计算机视觉中的目标检测, 通常采用 “分类” + “回归” 多任务模式, Semantic Segmentation 或 Instance Segmantation 也会采用类似的方法. 更直接的应用是多属性识别, 每个属性当成一个任务, 最后将各分支损失函数加权并计算梯度回传. 本 Blog 旨在总结多任务学习的文献, 通过阅读解决遇到的问题.</p>
+<p>多任务学习中遇到的问题主要有:  </p>
+<ul>
+<li>Shared Layers</li>
+<li>Class Imbalance</li>
+<li>Task Weight</li>
+<li>Negative Transfer</li>
+</ul>
+<p>(1) 什么情况下容易发生 Negative Transfer?</p>
+<ul>
+<li>所有任务不相关, 难以找到恰当的共同潜在表示</li>
+<li>一组相关的任务在训练过程中占据了主导, 从而导致非主导性的任务性能很差.</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/16/Multi-task-Learning/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -733,11 +750,10 @@
 
       
         
-          <h1>概述</h1>
-<p>人脸姿态不变处理方法可以分为两类:</p>
+          <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>人脸姿态不变处理方法可以分为两类:</p>
 <ul>
-<li><strong>手工构造或学习姿态不变特征</strong>: 此类方法主要存在两个问题, 一是需要在不变性和可区分性之间找到平衡, 因此对于大的姿态变化性能不好; 二是数据通常呈现重尾分布, 某些情形下模型泛化能力有限;</li>
-<li><strong>合成正脸人脸图像</strong>: 主要包含两类方法, (1) 3D 几何变换法, 该类方法难以有效恢复人脸细节; (2) 数据驱动方法, 如 VAE, GAN-based 的方法. 基于 GAN 的方法是我们重点关注和讨论的方法,</li>
+<li><strong>手工构造或学习姿态不变特征</strong>: 此类方法主要存在两个问题, 一是需要在不变性和可区分性之间找到平衡, 因此对于大的姿态变化性能不好; 二是数据通常呈现重尾分布, 某些情形下模型泛化能力有限;  </li>
+<li><strong>合成正脸人脸图像</strong>: 主要包含两类方法, (1) 3D 几何变换法, 该类方法难以有效恢复人脸细节; (2) 数据驱动方法, 如 VAE, GAN-based 的方法. 基于 GAN 的方法是我们重点关注和讨论的方法, </li>
 </ul>
 <p><img src="/2019/04/08/Face-Synthesis/2019-04-13-23-38-06.png" alt=""></p>
 <p>正脸合成问题理解:</p>

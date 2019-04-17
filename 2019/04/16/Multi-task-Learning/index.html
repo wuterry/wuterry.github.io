@@ -109,14 +109,17 @@
 
 
 
+<meta name="description" content="多任务学习 (Multi-task Learning) 已应用到诸多任务, 例如计算机视觉中的目标检测, 通常采用 “分类” + “回归” 多任务模式, Semantic Segmentation 或 Instance Segmantation 也会采用类似的方法. 更直接的应用是多属性识别, 每个属性当成一个任务, 最后将各分支损失函数加权并计算梯度回传. 本 Blog 旨在总结多任务学习的文献">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Multi-Task Learning">
 <meta property="og:url" content="http://yoursite.com/2019/04/16/Multi-task-Learning/index.html">
 <meta property="og:site_name" content="Terry Wu">
+<meta property="og:description" content="多任务学习 (Multi-task Learning) 已应用到诸多任务, 例如计算机视觉中的目标检测, 通常采用 “分类” + “回归” 多任务模式, Semantic Segmentation 或 Instance Segmantation 也会采用类似的方法. 更直接的应用是多属性识别, 每个属性当成一个任务, 最后将各分支损失函数加权并计算梯度回传. 本 Blog 旨在总结多任务学习的文献">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-16T06:02:12.481Z">
+<meta property="og:updated_time" content="2019-04-16T12:03:19.931Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Multi-Task Learning">
+<meta name="twitter:description" content="多任务学习 (Multi-task Learning) 已应用到诸多任务, 例如计算机视觉中的目标检测, 通常采用 “分类” + “回归” 多任务模式, Semantic Segmentation 或 Instance Segmantation 也会采用类似的方法. 更直接的应用是多属性识别, 每个属性当成一个任务, 最后将各分支损失函数加权并计算梯度回传. 本 Blog 旨在总结多任务学习的文献">
 
 
 
@@ -425,7 +428,25 @@
       
 
       
-        
+        <p>多任务学习 (Multi-task Learning) 已应用到诸多任务, 例如计算机视觉中的目标检测, 通常采用 “分类” + “回归” 多任务模式, Semantic Segmentation 或 Instance Segmantation 也会采用类似的方法. 更直接的应用是多属性识别, 每个属性当成一个任务, 最后将各分支损失函数加权并计算梯度回传. 本 Blog 旨在总结多任务学习的文献, 通过阅读解决遇到的问题.</p>
+<p>多任务学习中遇到的问题主要有:  </p>
+<ul>
+<li>Shared Layers</li>
+<li>Class Imbalance</li>
+<li>Task Weight</li>
+<li>Negative Transfer</li>
+</ul>
+<p>(1) 什么情况下容易发生 Negative Transfer?</p>
+<ul>
+<li>所有任务不相关, 难以找到恰当的共同潜在表示</li>
+<li>一组相关的任务在训练过程中占据了主导, 从而导致非主导性的任务性能很差.</li>
+</ul>
+<a id="more"></a>  
+<h1 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h1><h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><h3 id="Many-Task-Learning-with-Task-Routing"><a href="#Many-Task-Learning-with-Task-Routing" class="headerlink" title="Many Task Learning with Task Routing"></a>Many Task Learning with Task Routing</h3><p><em>G. Strezoski, N. van Noord, and M. Worring, “Many Task Learning with Task Routing,” arXiv:1903.12117 [cs], Mar. 2019.</em></p>
+<h3 id="Branched-Multi-Task-Networks-Deciding-What-Layers-To-Share"><a href="#Branched-Multi-Task-Networks-Deciding-What-Layers-To-Share" class="headerlink" title="Branched Multi-Task Networks: Deciding What Layers To Share"></a>Branched Multi-Task Networks: Deciding What Layers To Share</h3><p><em>Vandenhende, Simon, Bert De Brabandere, and Luc Van Gool. “Branched Multi-Task Networks: Deciding What Layers To Share.” ArXiv:1904.02920 [Cs], April 5, 2019. <a href="http://arxiv.org/abs/1904.02920" target="_blank" rel="noopener">http://arxiv.org/abs/1904.02920</a>.</em></p>
+<h2 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h2><h3 id="Loss-Balanced-Task-Weighting-to-Reduce-Negative-Transfer-in-Multi-Task-Learning"><a href="#Loss-Balanced-Task-Weighting-to-Reduce-Negative-Transfer-in-Multi-Task-Learning" class="headerlink" title="Loss-Balanced Task Weighting to Reduce Negative Transfer in Multi-Task Learning"></a>Loss-Balanced Task Weighting to Reduce Negative Transfer in Multi-Task Learning</h3><p><em>Liu, Shengchao, Yingyu Liang, and Anthony Gitter. “Loss-Balanced Task Weighting to Reduce Negative Transfer in Multi-Task Learning.” Conference on Machine Learning. Vol. 793. 2019.</em></p>
+<p>这篇文章的思想很简单, 将任务 t 后续各个 batch 的 loss 与第一个 batch 的 loss 做比较得到 loss 的比值 $\left(\frac{Loss_n}{Loss_1}\right)^{\alpha}$, 这个比值越小, 说明该任务收敛越好. 以此作为权重对各个任务的 loss 进行加权.</p>
+
       
     </div>
     
@@ -512,8 +533,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -573,6 +603,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Methods"><span class="nav-number">1.</span> <span class="nav-text">Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络结构"><span class="nav-number">1.1.</span> <span class="nav-text">网络结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Many-Task-Learning-with-Task-Routing"><span class="nav-number">1.1.1.</span> <span class="nav-text">Many Task Learning with Task Routing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Branched-Multi-Task-Networks-Deciding-What-Layers-To-Share"><span class="nav-number">1.1.2.</span> <span class="nav-text">Branched Multi-Task Networks: Deciding What Layers To Share</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#损失函数"><span class="nav-number">1.2.</span> <span class="nav-text">损失函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Loss-Balanced-Task-Weighting-to-Reduce-Negative-Transfer-in-Multi-Task-Learning"><span class="nav-number">1.2.1.</span> <span class="nav-text">Loss-Balanced Task Weighting to Reduce Negative Transfer in Multi-Task Learning</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
