@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="">
+<html class="theme-next mist use-motion" lang="">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -109,13 +109,25 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Terry Wu">
-<meta property="og:url" content="http://yoursite.com/tags/class-imbalance/index.html">
+<meta name="description" content="本博客主要总结自 Attention? Attention?, 感谢作者辛勤的总结. 注意力机制可以理解为一种元素重要性加权机制.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Attention">
+<meta property="og:url" content="http://yoursite.com/2019/04/19/Attention/index.html">
 <meta property="og:site_name" content="Terry Wu">
+<meta property="og:description" content="本博客主要总结自 Attention? Attention?, 感谢作者辛勤的总结. 注意力机制可以理解为一种元素重要性加权机制.">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/04/19/Attention/2019-04-19-20-13-17.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/19/Attention/2019-04-19-21-55-15.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/19/Attention/2019-04-19-23-00-16.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/19/Attention/2019-04-19-23-30-19.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/19/Attention/2019-04-20-20-43-45.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/19/Attention/2019-04-20-20-45-06.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/19/Attention/2019-04-20-20-46-38.png">
+<meta property="og:updated_time" content="2019-04-20T13:15:33.024Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Terry Wu">
+<meta name="twitter:title" content="Attention">
+<meta name="twitter:description" content="本博客主要总结自 Attention? Attention?, 感谢作者辛勤的总结. 注意力机制可以理解为一种元素重要性加权机制.">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/19/Attention/2019-04-19-20-13-17.png">
 
 
 
@@ -123,7 +135,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -145,13 +157,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/class-imbalance/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/19/Attention/">
 
 
 
 
 
-  <title>Tag: class imbalance | Terry Wu</title>
+  <title>Attention | Terry Wu</title>
   
 
 
@@ -170,7 +182,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -306,52 +318,315 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>class imbalance<small>Tag</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/19/Attention/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Terry Wu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Terry Wu">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/12/29/Imbalance-Learning/" itemprop="url">
-              
-                <span itemprop="name">Imbalance Learning</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">Attention</h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-29T08:49:59+08:00" content="2018-12-29">
-          12-29
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-19T19:44:26+08:00">
+                2019-04-19
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Attention-Mechanisms/" itemprop="url" rel="index">
+                    <span itemprop="name">Attention Mechanisms</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/04/19/Attention/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2019/04/19/Attention/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本博客主要总结自 <a href="https://lilianweng.github.io/lil-log/2018/06/24/attention-attention.html" target="_blank" rel="noopener">Attention? Attention?</a>, 感谢作者辛勤的总结.</p>
+<p>注意力机制可以理解为一种元素重要性加权机制.</p>
+<a id="more"></a>
+<h1 id="Seq2Seq-模型的有什么问题"><a href="#Seq2Seq-模型的有什么问题" class="headerlink" title="Seq2Seq 模型的有什么问题"></a>Seq2Seq 模型的有什么问题</h1><p><strong>seq2seq</strong> 模型最早出现在语言模型中 (<a href="https://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf" target="_blank" rel="noopener">Sutskever, et al. 2014</a>). 一般而言, 该方法能将输入序列 (source) 转换为新的输出序列 (target), 且输入输出序列长度任意.</p>
+<p>seq2seq 是一种 encoder-decoder 结构, 包含:  </p>
+<ul>
+<li><strong>encoder</strong>: 将输入序列压缩为固定长度的 context vector (或 sentence embedding / thought vector)</li>
+<li><strong>decoder</strong>: 将 context vector 作为初始值, 输出变换后的序列. 早期的工作仅仅将编码网络的最终状态作为初始值.</li>
+</ul>
+<center>
+    <img style="border-radius: 0.5125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="/2019/04/19/Attention/2019-04-19-20-13-17.png" width="600">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">Sample of seq2seq</div>
+</center>
+
+<p><font size="3" color="red">缺点</font>: 固定长度 context vector 无法处理长句子.</p>
+<h1 id="注意力机制产生"><a href="#注意力机制产生" class="headerlink" title="注意力机制产生"></a>注意力机制产生</h1><p>注意力机制产生的背景主要是解决神经机器翻译(NMT, <a href="https://arxiv.org/pdf/1409.0473.pdf" target="_blank" rel="noopener"><em>Bahdanau et al., 2015</em></a>)中长源句子的记忆. 不是通过在编码器最后的隐藏状态构建一个单一的 context vector, 而是在源输入和 context vector 之间建立短接 (shortcuts). 从而 context vector 可以利用整个输入序列的信息, 无需担心遗忘. 由此, context vector 包含了三段信息:</p>
+<ul>
+<li>编码器的隐藏状态</li>
+<li>解码器的隐藏状态</li>
+<li>源序列和目标序列的对齐信息</li>
+</ul>
+<center>
+    <img style="border-radius: 0.5125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="/2019/04/19/Attention/2019-04-19-21-55-15.png" width="600">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"> NMT 加性注意力机制</div>
+</center>
+
+<p>定义:</p>
+<ul>
+<li>源序列: $\mathbf{x}=\left[x_{1}, x_{2}, \dots, x_{n}\right]$, 长度为 $n$</li>
+<li>目标序列: $\mathbf{y}=\left[y_{1}, y_{2}, \dots, y_{m}\right]$, 长度为 $m$</li>
+<li>编码器: $\boldsymbol{h}_{i}=\left[\overrightarrow{\boldsymbol{h}}_{i}^{\top} ; \overleftarrow{\boldsymbol{h}}_{i}^{\top}\right]^{\top}, i=1, \ldots, n$</li>
+<li>在位置 $t (t=1,\ldots,m)$ 处的单词, 解码器具有隐藏状态 $\boldsymbol{s}_{t}=f\left(\boldsymbol{s}_{t-1}, y_{t-1}, \mathbf{c}_{t}\right)$, context vector $\mathbf{c}_t$ 是输入序列隐藏状态的和.则 $y_t$ 出的 context vector 满足<script type="math/tex; mode=display">
+\mathbf{c}_{t}=\sum_{i=1}^{n} \alpha_{t, i} \boldsymbol{h}_{i}</script>其中, 单词 $y_t$ 和 $x_i$ 的对齐程度可表示为<script type="math/tex; mode=display">
+\begin{aligned} 
+\alpha_{t, i} 
+&=\operatorname{align}\left(y_{t}, x_{i}\right) \\ 
+&=\frac{\exp \left(\operatorname{score}\left(\mathbf{s}_{t-1}, \mathbf{h}_{i}\right)\right)}{\sum_{i^{\prime}=1}^{n} \exp \left(\operatorname{score}\left(\mathbf{s}_{t-1}, \mathbf{h}_{i^{\prime}}\right)\right)} 
+\end{aligned}</script></li>
+</ul>
+<p>对齐模型根据对齐程度, 为一对位置 $i$ 处的输入和 $t$ 处的输出分配一个分数 $\alpha_{t,i}$.</p>
+<h1 id="注意力机制家族"><a href="#注意力机制家族" class="headerlink" title="注意力机制家族"></a>注意力机制家族</h1><h2 id="Self-Attention"><a href="#Self-Attention" class="headerlink" title="Self-Attention"></a>Self-Attention</h2><p>Self-attention, 又称 intra-attention, 能将单个句子中不同的位置关联起来. 主要应用场景包含机器阅读, 抽象总结或图像描述生成.</p>
+<h2 id="Soft-vs-Hard-Attention"><a href="#Soft-vs-Hard-Attention" class="headerlink" title="Soft vs Hard Attention"></a>Soft vs Hard Attention</h2><p>soft 和 hard 的区别在于是利用整张图像还是图像块.</p>
+<ul>
+<li><strong>soft-attention</strong>: 对齐权重通过学习得到, 并软释放到源图像上的所有图像块;<ul>
+<li>Pro: 模型平滑可微</li>
+<li>Con: 源图像较大时很耗资源</li>
+</ul>
+</li>
+<li><strong>hard-attention</strong>: 一次只选取图像中的一个图像块.<ul>
+<li>Pro: 更低计算量</li>
+<li>Con: 模型不可微, 需要更复杂的技术进行训练, 如 varience reduction 或深度强化学习.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Global-vs-Local-Attention"><a href="#Global-vs-Local-Attention" class="headerlink" title="Global vs Local Attention"></a>Global vs Local Attention</h2><p>全局注意力机制和软注意力机制比较像, 而局部注意力机制结合了 hard 和 soft, 使得模型可微.</p>
+<center>
+    <img style="border-radius: 0.5125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="/2019/04/19/Attention/2019-04-19-23-00-16.png" width="600">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"> 全局和局部注意力机制</div>
+</center>
+
+<h1 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h1><p><strong>Transformer</strong> 完全构建于 self-attention 机制上, 无需使用序列对齐的循环结构. Transformer 的主要组件是 <font color="blue"> <em>multi-head self-attention</em></font> 机制.</p>
+<h2 id="Key-Value-and-Query"><a href="#Key-Value-and-Query" class="headerlink" title="Key, Value and Query"></a>Key, Value and Query</h2><p>Transformer 将输入的编码表达为一组 <strong>key-value</strong> 对 $(\mathbf{K, V})$, 两者的维度和输入序列长度一样, 记为 $n$. 在 NMT 中, keys 和 values 都是 encoder hidden states. 在解码器中, 之前的输出被压缩为 <strong>query</strong> ($\mathbf{Q}, 维度为 m$), 通过映射该query 和 keys, values 组 作为之后的输出.</p>
+<p>Transformer 采用了 scaled dot-production attention, 即输出为 values 的加权和, 其中每个 value 的权值由 query 和所有 keys 的点乘决定.</p>
+<script type="math/tex; mode=display">
+(\mathbf{Q}, \mathbf{K}, \mathbf{V})=\operatorname{softmax}\left(\frac{\mathbf{Q} \mathbf{K}^{\top}}{\sqrt{n}}\right) \mathbf{V}</script><h2 id="Multi-Head-Self-Attention"><a href="#Multi-Head-Self-Attention" class="headerlink" title="Multi-Head Self-Attention"></a>Multi-Head Self-Attention</h2><center>
+    <img style="border-radius: 0.5125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="/2019/04/19/Attention/2019-04-19-23-30-19.png" width="280">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">Multi-Head Attention consists of several
+attention layers running in parallel</div>
+</center>
+
+
+
+<h2 id="Encoder"><a href="#Encoder" class="headerlink" title="Encoder"></a>Encoder</h2><center>
+    <img style="border-radius: 0.5125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="/2019/04/19/Attention/2019-04-20-20-43-45.png" width="280">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">Encoder</div>
+</center>
+
+<p>编码器生成从具有无限可能内容中定位特定片段信息的注意力表示.</p>
+<ul>
+<li>包含 N=6 的完全相同的层堆叠</li>
+<li>每一层具有一个 multi-head self-attention layer 和一个简单的全连接前向网络</li>
+<li>每个 sub-layer 采用 residual 连接和 layer normalization. 所有的 sub-layers 输出数据具有相同的维度 $d_{model} = 512$</li>
+</ul>
+<h2 id="Decoder"><a href="#Decoder" class="headerlink" title="Decoder"></a>Decoder</h2><center>
+    <img style="border-radius: 0.5125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="/2019/04/19/Attention/2019-04-20-20-45-06.png" width="280">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">Decoder</div>
+</center>
+
+<p>解码器具有从编码表示中恢复信息的能力.</p>
+<ul>
+<li>包含 N=6 的完全相同的层堆叠</li>
+<li>每层具有两个 multi-head attention 机制的子层和一个全连接前向网络</li>
+<li>每个子层采用了 residual connection 和 layer normalization</li>
+</ul>
+<h2 id="Full-Architecture"><a href="#Full-Architecture" class="headerlink" title="Full Architecture"></a>Full Architecture</h2><center>
+    <img style="border-radius: 0.5125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="/2019/04/19/Attention/2019-04-20-20-46-38.png" width="1000">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">Full Architecture of Transformer</div>
+</center>
+
+<ul>
+<li>源和目标序列首先通过 embedding layers 生成具有相同维度 $d_{model}=512$ 的数据</li>
+<li>为了保存位置信息, 采用了正弦波位置编码方式, 并叠加至 embedding 的输出</li>
+</ul>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/16/Multi-task-Learning/" rel="next" title="Multi-Task Learning">
+                <i class="fa fa-chevron-left"></i> Multi-Task Learning
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -359,6 +634,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+  
+  
 
         </div>
         
@@ -379,8 +661,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -395,7 +686,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -406,7 +697,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -417,7 +708,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -440,6 +731,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Seq2Seq-模型的有什么问题"><span class="nav-number">1.</span> <span class="nav-text">Seq2Seq 模型的有什么问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意力机制产生"><span class="nav-number">2.</span> <span class="nav-text">注意力机制产生</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意力机制家族"><span class="nav-number">3.</span> <span class="nav-text">注意力机制家族</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Self-Attention"><span class="nav-number">3.1.</span> <span class="nav-text">Self-Attention</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Soft-vs-Hard-Attention"><span class="nav-number">3.2.</span> <span class="nav-text">Soft vs Hard Attention</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Global-vs-Local-Attention"><span class="nav-number">3.3.</span> <span class="nav-text">Global vs Local Attention</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Transformer"><span class="nav-number">4.</span> <span class="nav-text">Transformer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Key-Value-and-Query"><span class="nav-number">4.1.</span> <span class="nav-text">Key, Value and Query</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Multi-Head-Self-Attention"><span class="nav-number">4.2.</span> <span class="nav-text">Multi-Head Self-Attention</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Encoder"><span class="nav-number">4.3.</span> <span class="nav-text">Encoder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Decoder"><span class="nav-number">4.4.</span> <span class="nav-text">Decoder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Full-Architecture"><span class="nav-number">4.5.</span> <span class="nav-text">Full Architecture</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -472,7 +779,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 
@@ -592,14 +899,11 @@
   
   
 
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
