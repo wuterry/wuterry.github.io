@@ -98,7 +98,7 @@
 
 
 
-  <meta name="keywords" content="imbalance,">
+  <meta name="keywords" content="Imbalance Learning,">
 
 
 
@@ -110,14 +110,14 @@
 
 
 <meta name="description" content="数据不平衡处理方法的整理.">
-<meta name="keywords" content="imbalance">
+<meta name="keywords" content="Imbalance Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Imbalance Learning">
 <meta property="og:url" content="http://yoursite.com/2018/12/29/Imbalance-Learning/index.html">
 <meta property="og:site_name" content="Terry Wu">
 <meta property="og:description" content="数据不平衡处理方法的整理.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-18T08:30:12.065Z">
+<meta property="og:updated_time" content="2019-05-05T09:01:48.438Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Imbalance Learning">
 <meta name="twitter:description" content="数据不平衡处理方法的整理.">
@@ -279,20 +279,26 @@
   
     <div class="site-search">
       
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
     <span class="popup-btn-close">
       <i class="fa fa-times-circle"></i>
     </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
-    </div>
   </div>
-  <div id="local-search-result"></div>
-</div>
+
 
 
 
@@ -452,7 +458,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/imbalance/" rel="tag"># imbalance</a>
+            <a href="/tags/Imbalance-Learning/" rel="tag"># Imbalance Learning</a>
           
         </div>
       
@@ -557,7 +563,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -568,7 +574,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -579,7 +585,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -661,7 +667,7 @@
 
   
     <span class="site-uv">
-      <i class="fa fa-user"></i>Total Visitors
+      <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
       
     </span>
@@ -669,7 +675,7 @@
 
   
     <span class="site-pv">
-      <i class="fa fa-eye"></i>Count
+      <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
       
     </span>
@@ -1158,12 +1164,40 @@
 
 
 
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+
+
 
   
 
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
   
