@@ -109,20 +109,21 @@
 
 
 
-<meta name="description" content="主动学习解决的是在有限标注样本条件下, 从大量未标注样本中挖掘有价值的样本提升模型性能. 其方法可以分为 membership query synthesis, stream-based selective sampling 和 pool-based sampling 三类方法。 对于一批未标注样本, 根据样本的选取策略可以划分为三种方法:  Uncertainty-based method:">
+<meta name="description" content="目的：  选取样本类别不平衡情形下样本数偏少的类别； 选取难样本。  主动学习解决的是在有限标注样本条件下, 从大量未标注样本中挖掘有价值的样本提升模型性能. 其方法可以分为 membership query synthesis, stream-based selective sampling 和 pool-based sampling 三类方法。 对于一批未标注样本, 根据样本的选取策略可以划">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Active Learning">
 <meta property="og:url" content="http://yoursite.com/2019/07/24/Active-Learning/index.html">
 <meta property="og:site_name" content="Terry Wu">
-<meta property="og:description" content="主动学习解决的是在有限标注样本条件下, 从大量未标注样本中挖掘有价值的样本提升模型性能. 其方法可以分为 membership query synthesis, stream-based selective sampling 和 pool-based sampling 三类方法。 对于一批未标注样本, 根据样本的选取策略可以划分为三种方法:  Uncertainty-based method:">
+<meta property="og:description" content="目的：  选取样本类别不平衡情形下样本数偏少的类别； 选取难样本。  主动学习解决的是在有限标注样本条件下, 从大量未标注样本中挖掘有价值的样本提升模型性能. 其方法可以分为 membership query synthesis, stream-based selective sampling 和 pool-based sampling 三类方法。 对于一批未标注样本, 根据样本的选取策略可以划">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/07/24/Active-Learning/2019-07-25-09-27-00.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/24/Active-Learning/2019-07-24-14-39-33.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/24/Active-Learning/2019-07-24-16-02-11.png">
-<meta property="og:updated_time" content="2019-07-25T02:38:06.405Z">
+<meta property="og:image" content="http://yoursite.com/2019/07/24/Active-Learning/2019-08-07-10-38-12.png">
+<meta property="og:updated_time" content="2019-08-07T09:17:34.967Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Active Learning">
-<meta name="twitter:description" content="主动学习解决的是在有限标注样本条件下, 从大量未标注样本中挖掘有价值的样本提升模型性能. 其方法可以分为 membership query synthesis, stream-based selective sampling 和 pool-based sampling 三类方法。 对于一批未标注样本, 根据样本的选取策略可以划分为三种方法:  Uncertainty-based method:">
+<meta name="twitter:description" content="目的：  选取样本类别不平衡情形下样本数偏少的类别； 选取难样本。  主动学习解决的是在有限标注样本条件下, 从大量未标注样本中挖掘有价值的样本提升模型性能. 其方法可以分为 membership query synthesis, stream-based selective sampling 和 pool-based sampling 三类方法。 对于一批未标注样本, 根据样本的选取策略可以划">
 <meta name="twitter:image" content="http://yoursite.com/2019/07/24/Active-Learning/2019-07-25-09-27-00.png">
 
 
@@ -439,6 +440,11 @@
 
       
         <p><img src="/2019/07/24/Active-Learning/2019-07-25-09-27-00.png" alt=""></p>
+<p><strong>目的</strong>：</p>
+<ul>
+<li>选取样本类别不平衡情形下样本数偏少的类别；</li>
+<li>选取难样本。</li>
+</ul>
 <p>主动学习解决的是在有限标注样本条件下, 从大量未标注样本中挖掘有价值的样本提升模型性能. 其方法可以分为 membership query synthesis, stream-based selective sampling 和 pool-based sampling 三类方法。</p>
 <p>对于一批未标注样本, 根据样本的选取策略可以划分为三种方法:</p>
 <ul>
@@ -446,11 +452,17 @@
 </li>
 <li><p><strong>Diversity-based method</strong>: 从未标注的数据池中选取多样性样本以代表整个样本池的分布;</p>
 </li>
-<li><p><strong>Expected model change</strong>: 选取能够给当前模型参数带来最优改变的样本.</p>
+<li><p><strong>Expected model change</strong>: 选取能够给当前模型参数带来最大改变的样本.</p>
+</li>
+<li><p><strong>Query By Committee</strong>: train several different models on the labeled set and look at their disagreement on examples in the unlabeled set.</p>
 </li>
 </ul>
+<p><strong>Question</strong></p>
+<p>1) 在神经网络中， 为何不直接是用 softmax 分数作为不确定性的概率？<br>神经网络的训练过程使训练样本的 softmax 分数越接近 one-hot, 输出结果是过度自信的。所以若无正则，输出结果的分布是不可靠的。</p>
+<p><strong>Conlusion</strong></p>
+<p>Uncertainty sampling is a strong algorithm even in large batch sizes.</p>
 <a id="more"></a>
-<h1 id="Learning-Loss-for-Active-Learning"><a href="#Learning-Loss-for-Active-Learning" class="headerlink" title="Learning Loss for Active Learning"></a>Learning Loss for Active Learning</h1><p><em>Yoo, D. and Kweon, I.S., 2019. Learning Loss for Active Learning. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (pp. 93-102).</em></p>
+<h1 id="Papers"><a href="#Papers" class="headerlink" title="Papers"></a>Papers</h1><h2 id="Learning-Loss-for-Active-Learning"><a href="#Learning-Loss-for-Active-Learning" class="headerlink" title="Learning Loss for Active Learning"></a>Learning Loss for Active Learning</h2><p><em>Yoo, D. and Kweon, I.S., 2019. Learning Loss for Active Learning. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (pp. 93-102).</em></p>
 <center>
     <img style="border-radius: 0.5125em;
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="/2019/07/24/Active-Learning/2019-07-24-14-39-33.png" width="600">
@@ -482,7 +494,39 @@
 </li>
 </ol>
 <p>按照如上步骤不断循环迭代.</p>
-<h1 id="Deep-Batch-Active-Learning-by-Diverse-Uncertain-Gradient-Lower-Bounds"><a href="#Deep-Batch-Active-Learning-by-Diverse-Uncertain-Gradient-Lower-Bounds" class="headerlink" title="Deep Batch Active Learning by Diverse, Uncertain Gradient Lower Bounds"></a>Deep Batch Active Learning by Diverse, Uncertain Gradient Lower Bounds</h1><h1 id="Minimum-Margin-Active-Learning"><a href="#Minimum-Margin-Active-Learning" class="headerlink" title="Minimum-Margin Active Learning"></a>Minimum-Margin Active Learning</h1>
+<h2 id="Deep-Bayesian-Active-Learning-with-Image-Data"><a href="#Deep-Bayesian-Active-Learning-with-Image-Data" class="headerlink" title="Deep Bayesian Active Learning with Image Data"></a>Deep Bayesian Active Learning with Image Data</h2><p>深度学习中使用 Active Learning (AL) 的难点：</p>
+<ul>
+<li>通常 AL 应用于小数据集；</li>
+<li>AL 查询函数依赖模型的不确定性， 而深度学习模型难以表现这种不确定性。</li>
+</ul>
+<h2 id="Deep-Batch-Active-Learning-by-Diverse-Uncertain-Gradient-Lower-Bounds"><a href="#Deep-Batch-Active-Learning-by-Diverse-Uncertain-Gradient-Lower-Bounds" class="headerlink" title="Deep Batch Active Learning by Diverse, Uncertain Gradient Lower Bounds"></a>Deep Batch Active Learning by Diverse, Uncertain Gradient Lower Bounds</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## Minimum-Margin Active Learning</span><br><span class="line">``` TODO</span><br></pre></td></tr></table></figure>
+<h2 id="Active-Learning-used-in-Imbalance-Data"><a href="#Active-Learning-used-in-Imbalance-Data" class="headerlink" title="Active Learning used in Imbalance Data"></a>Active Learning used in Imbalance Data</h2><p><code>TODO</code></p>
+<h2 id="Active-Learning-for-Convolutional-Neural-Networks-A-Core-Set-Approach"><a href="#Active-Learning-for-Convolutional-Neural-Networks-A-Core-Set-Approach" class="headerlink" title="Active Learning for Convolutional Neural Networks: A Core-Set Approach"></a>Active Learning for Convolutional Neural Networks: A Core-Set Approach</h2><p>ICLR2018</p>
+<h2 id="A-Robust-Zero-Sum-Game-Framework-for-Pool-based-Active-Learning"><a href="#A-Robust-Zero-Sum-Game-Framework-for-Pool-based-Active-Learning" class="headerlink" title="A Robust Zero-Sum Game Framework for Pool-based Active Learning"></a>A Robust Zero-Sum Game Framework for Pool-based Active Learning</h2><p><em>Zhu, D., Li, Z., Wang, X., Gong, B., &amp; Yang, T. (2019, April). A Robust Zero-Sum Game Framework for Pool-based Active Learning. In The 22nd International Conference on Artificial Intelligence and Statistics (pp. 517-526).</em></p>
+<h3 id="文章亮点"><a href="#文章亮点" class="headerlink" title="文章亮点"></a>文章亮点</h3><ul>
+<li>易于优化，线性甚至是对数时间复杂度</li>
+<li>综合了标注和未标注图像的信息，避免了采样偏置</li>
+<li>对于不平衡的数据分布稳健</li>
+<li>基于最新的机器学习理论</li>
+</ul>
+<h2 id="Active-Learning-for-Convolutional-Neural-Networks-A-Core-Set-Approach-2018-ICLR"><a href="#Active-Learning-for-Convolutional-Neural-Networks-A-Core-Set-Approach-2018-ICLR" class="headerlink" title="Active Learning for Convolutional Neural Networks: A Core-Set Approach (2018-ICLR)"></a>Active Learning for Convolutional Neural Networks: A Core-Set Approach (2018-ICLR)</h2><ul>
+<li><p><a href="https://github.com/ozansener/active_learning_coreset" target="_blank" rel="noopener">code</a></p>
+</li>
+<li><p>思路： 最小化采样点与非采样点在模型的特征空间中的欧氏距离。</p>
+</li>
+<li>优点：对于深度神经网络和大数据集有较好表现；</li>
+<li>缺点：(1) 分类类别数较多时性能变差；(2) 对与高维数据无效；</li>
+</ul>
+<h2 id="Variational-Adversarial-Active-Learning-2019-ICCV"><a href="#Variational-Adversarial-Active-Learning-2019-ICCV" class="headerlink" title="Variational Adversarial Active Learning (2019-ICCV)"></a>Variational Adversarial Active Learning (2019-ICCV)</h2><ul>
+<li><a href="https://github.com/sinhasam/vaal" target="_blank" rel="noopener">code</a><br><img src="/2019/07/24/Active-Learning/2019-08-07-10-38-12.png" alt=""></li>
+</ul>
+<h1 id="Sources"><a href="#Sources" class="headerlink" title="Sources"></a>Sources</h1><ul>
+<li><a href="http://parnec.nuaa.edu.cn/huangsj/alipy/" target="_blank" rel="noopener">ALiPy</a></li>
+<li><a href="https://dsgissin.github.io/DiscriminativeActiveLearning/" target="_blank" rel="noopener">Active Learning Review</a> <a href="https://github.com/dsgissin/DiscriminativeActiveLearning" target="_blank" rel="noopener">_code_</a></li>
+<li><a href="https://github.com/google/active-learning" target="_blank" rel="noopener">google active learning</a></li>
+<li><a href="">modAL</a>(<a href="https://github.com/modAL-python/modAL" target="_blank" rel="noopener">https://github.com/modAL-python/modAL</a>)</li>
+</ul>
+
       
     </div>
     
@@ -515,6 +559,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/17/Noisy-Labels/" rel="prev" title="Noisy Labels">
+                Noisy Labels <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -594,7 +642,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -605,7 +653,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -649,7 +697,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Learning-Loss-for-Active-Learning"><span class="nav-number">1.</span> <span class="nav-text">Learning Loss for Active Learning</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Deep-Batch-Active-Learning-by-Diverse-Uncertain-Gradient-Lower-Bounds"><span class="nav-number">2.</span> <span class="nav-text">Deep Batch Active Learning by Diverse, Uncertain Gradient Lower Bounds</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Minimum-Margin-Active-Learning"><span class="nav-number">3.</span> <span class="nav-text">Minimum-Margin Active Learning</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Papers"><span class="nav-number">1.</span> <span class="nav-text">Papers</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Learning-Loss-for-Active-Learning"><span class="nav-number">1.1.</span> <span class="nav-text">Learning Loss for Active Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-Bayesian-Active-Learning-with-Image-Data"><span class="nav-number">1.2.</span> <span class="nav-text">Deep Bayesian Active Learning with Image Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-Batch-Active-Learning-by-Diverse-Uncertain-Gradient-Lower-Bounds"><span class="nav-number">1.3.</span> <span class="nav-text">Deep Batch Active Learning by Diverse, Uncertain Gradient Lower Bounds</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Active-Learning-used-in-Imbalance-Data"><span class="nav-number">1.4.</span> <span class="nav-text">Active Learning used in Imbalance Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Active-Learning-for-Convolutional-Neural-Networks-A-Core-Set-Approach"><span class="nav-number">1.5.</span> <span class="nav-text">Active Learning for Convolutional Neural Networks: A Core-Set Approach</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Robust-Zero-Sum-Game-Framework-for-Pool-based-Active-Learning"><span class="nav-number">1.6.</span> <span class="nav-text">A Robust Zero-Sum Game Framework for Pool-based Active Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文章亮点"><span class="nav-number">1.6.1.</span> <span class="nav-text">文章亮点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Active-Learning-for-Convolutional-Neural-Networks-A-Core-Set-Approach-2018-ICLR"><span class="nav-number">1.7.</span> <span class="nav-text">Active Learning for Convolutional Neural Networks: A Core-Set Approach (2018-ICLR)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Variational-Adversarial-Active-Learning-2019-ICCV"><span class="nav-number">1.8.</span> <span class="nav-text">Variational Adversarial Active Learning (2019-ICCV)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sources"><span class="nav-number">2.</span> <span class="nav-text">Sources</span></a></li></ol></div>
             
 
           </div>

@@ -109,20 +109,20 @@
 
 
 
-<meta name="description" content="行人属性识别通常包含了多个属性的识别，如 gender, age， coat, trousers, luggage 等。在实际项目中我们发现，相比于人脸属性，行人属性识别具有其自身特点，难度更高：  部分属性仅和人体的部分区域相关，如上衣长短袖仅和人体上半身相关； 训练样本较难，主要表现为部分身体和遮挡 (如某些人体只有上半身或下半身，同一人体 bbox 中出现多个人体)； 某些属性是多分类，某些">
+<meta name="description" content="行人属性识别通常包含了多个属性的识别，如 gender, age， coat, trousers, luggage 等。在实际项目中我们发现，相比于人脸属性，行人属性识别具有其自身特点，难度更高：  部分属性仅和人体的部分区域相关，如上衣长短袖仅和人体上半身相关； 训练样本较难，主要表现为部分身体和遮挡 (如某些人体只有上半身或下半身，同一人体 bbox 中出现多个人体)； 错标、歧义标签占比大">
 <meta name="keywords" content="Pedstrain">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pedstrain Attribute Notes">
 <meta property="og:url" content="http://yoursite.com/2018/09/13/Pedstrain-Attribute-Notes/index.html">
 <meta property="og:site_name" content="Terry Wu">
-<meta property="og:description" content="行人属性识别通常包含了多个属性的识别，如 gender, age， coat, trousers, luggage 等。在实际项目中我们发现，相比于人脸属性，行人属性识别具有其自身特点，难度更高：  部分属性仅和人体的部分区域相关，如上衣长短袖仅和人体上半身相关； 训练样本较难，主要表现为部分身体和遮挡 (如某些人体只有上半身或下半身，同一人体 bbox 中出现多个人体)； 某些属性是多分类，某些">
+<meta property="og:description" content="行人属性识别通常包含了多个属性的识别，如 gender, age， coat, trousers, luggage 等。在实际项目中我们发现，相比于人脸属性，行人属性识别具有其自身特点，难度更高：  部分属性仅和人体的部分区域相关，如上衣长短袖仅和人体上半身相关； 训练样本较难，主要表现为部分身体和遮挡 (如某些人体只有上半身或下半身，同一人体 bbox 中出现多个人体)； 错标、歧义标签占比大">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2018/09/13/Pedstrain-Attribute-Notes/annos_of_RAP.png">
 <meta property="og:image" content="http://yoursite.com/2018/09/13/Pedstrain-Attribute-Notes/indicators.png">
-<meta property="og:updated_time" content="2019-04-14T03:38:52.357Z">
+<meta property="og:updated_time" content="2019-10-23T01:34:51.319Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pedstrain Attribute Notes">
-<meta name="twitter:description" content="行人属性识别通常包含了多个属性的识别，如 gender, age， coat, trousers, luggage 等。在实际项目中我们发现，相比于人脸属性，行人属性识别具有其自身特点，难度更高：  部分属性仅和人体的部分区域相关，如上衣长短袖仅和人体上半身相关； 训练样本较难，主要表现为部分身体和遮挡 (如某些人体只有上半身或下半身，同一人体 bbox 中出现多个人体)； 某些属性是多分类，某些">
+<meta name="twitter:description" content="行人属性识别通常包含了多个属性的识别，如 gender, age， coat, trousers, luggage 等。在实际项目中我们发现，相比于人脸属性，行人属性识别具有其自身特点，难度更高：  部分属性仅和人体的部分区域相关，如上衣长短袖仅和人体上半身相关； 训练样本较难，主要表现为部分身体和遮挡 (如某些人体只有上半身或下半身，同一人体 bbox 中出现多个人体)； 错标、歧义标签占比大">
 <meta name="twitter:image" content="http://yoursite.com/2018/09/13/Pedstrain-Attribute-Notes/annos_of_RAP.png">
 
 
@@ -442,8 +442,19 @@
 <ul>
 <li>部分属性仅和人体的部分区域相关，如上衣长短袖仅和人体上半身相关；</li>
 <li>训练样本较难，主要表现为部分身体和遮挡 (如某些人体只有上半身或下半身，同一人体 bbox 中出现多个人体)；</li>
+<li>错标、歧义标签占比大 (实际场景中 &gt; 30%);</li>
+<li>某些样本标签丢失；</li>
+<li>样本的类别分布不平衡；</li>
 <li>某些属性是多分类，某些属性是二分类，不能简单地将多分类问题转化为二分类问题的；</li>
 <li>某些属性占整张图片的区域过小，如墨镜，正脸情况下的双肩包预测；</li>
+</ul>
+<p>归结起来，可以用如下几个关键词描述行人属性识别中遇到的挑战：</p>
+<ul>
+<li><strong>Occlusion</strong></li>
+<li><strong>Trunction</strong></li>
+<li><strong>Imbalance</strong></li>
+<li><strong>Noisy Label</strong></li>
+<li><strong>Label Missing</strong></li>
 </ul>
 <p>在算法设计中比较简单粗暴的思路是每个属性采用独立模型，可以想见当属性很多时，即使是小模型， 高性能 GPU 都未必能够处理过来. 所以更具有可扩展性的做法是当成多任务 (multi-task) 或者多标签 (multi-label)学习. 特别地，当某些属性包含多个类 ($\geq3$) 时, 采用 multi-task learning 更合理。</p>
 <p>基于多任务学习的属性识别面临诸多挑战，比如哪一层开始作为 share layer 开始分支, 不同任务之间 loss 的权重问题, 总结起来所面临的<strong>挑战</strong>包含如下几个方面: </p>
@@ -621,7 +632,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -632,7 +643,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
