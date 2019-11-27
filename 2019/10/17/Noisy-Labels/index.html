@@ -109,19 +109,20 @@
 
 
 
-<meta name="description" content="IEG: Robust Neural Network Training to Tackle Severe Label Noise authors: Zizhao Zhang, Han Zhang, Sercan Ö. Arık, Honglak Lee, Tomas Pfister (Google AI)   Three Key Insights Isolation of noisy labels">
+<meta name="description" content="IEG: Robust Neural Network Training to Tackle Severe Label Noise authors: Zizhao Zhang, Han Zhang, Sercan Ö. Arık, Honglak Lee, Tomas Pfister (Google AI)    Three Key Insights  Isolation of noisy labe">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Noisy Labels">
 <meta property="og:url" content="http://yoursite.com/2019/10/17/Noisy-Labels/index.html">
 <meta property="og:site_name" content="Terry Wu">
-<meta property="og:description" content="IEG: Robust Neural Network Training to Tackle Severe Label Noise authors: Zizhao Zhang, Han Zhang, Sercan Ö. Arık, Honglak Lee, Tomas Pfister (Google AI)   Three Key Insights Isolation of noisy labels">
+<meta property="og:description" content="IEG: Robust Neural Network Training to Tackle Severe Label Noise authors: Zizhao Zhang, Han Zhang, Sercan Ö. Arık, Honglak Lee, Tomas Pfister (Google AI)    Three Key Insights  Isolation of noisy labe">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/10/17/Noisy-Labels/2019-10-17-20-01-34.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/17/Noisy-Labels/2019-11-15-09-48-10.png">
 <meta property="og:image" content="http://yoursite.com/2019/10/17/Noisy-Labels/2019-10-30-16-11-10.png">
-<meta property="og:updated_time" content="2019-11-08T05:04:56.895Z">
+<meta property="og:updated_time" content="2019-11-15T01:48:48.266Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Noisy Labels">
-<meta name="twitter:description" content="IEG: Robust Neural Network Training to Tackle Severe Label Noise authors: Zizhao Zhang, Han Zhang, Sercan Ö. Arık, Honglak Lee, Tomas Pfister (Google AI)   Three Key Insights Isolation of noisy labels">
+<meta name="twitter:description" content="IEG: Robust Neural Network Training to Tackle Severe Label Noise authors: Zizhao Zhang, Han Zhang, Sercan Ö. Arık, Honglak Lee, Tomas Pfister (Google AI)    Three Key Insights  Isolation of noisy labe">
 <meta name="twitter:image" content="http://yoursite.com/2019/10/17/Noisy-Labels/2019-10-17-20-01-34.png">
 
 
@@ -385,7 +386,18 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Noisy-Labels/" itemprop="url" rel="index">
+                  <a href="/categories/Meta-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Meta Learning</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Meta-Learning/Noisy-Labels/" itemprop="url" rel="index">
                     <span itemprop="name">Noisy Labels</span>
                   </a>
                 </span>
@@ -441,19 +453,45 @@
 <li>authors: Zizhao Zhang, Han Zhang, Sercan Ö. Arık, Honglak Lee, Tomas Pfister (Google AI)</li>
 </ul>
 <p><img src="/2019/10/17/Noisy-Labels/2019-10-17-20-01-34.png" alt="performance"></p>
-<h4 id="Three-Key-Insights"><a href="#Three-Key-Insights" class="headerlink" title="Three Key Insights"></a>Three Key Insights</h4><ul>
+<blockquote>
+<p><strong>Three Key Insights</strong></p>
+<ul>
 <li><strong>Isolation</strong> of noisy labels;</li>
 <li><strong>Escalation</strong> of useful supervision from mislabeled data;</li>
 <li><strong>Guidance</strong> from small trusted data (2‰ trusted data).</li>
 </ul>
-<a id="more"></a>
-<h4 id="Innovation"><a href="#Innovation" class="headerlink" title="Innovation"></a>Innovation</h4><ul>
+<p><strong>两个问题</strong></p>
+<ol>
+<li>半监督训练中是否有必要抛弃具有噪声标签的数据?</li>
+<li>如何从噪声标签个中提取有效信息?</li>
+</ol>
+<p><strong>创新点</strong></p>
+<ul>
 <li>A meta learning based re-weighting and re-labeling</li>
-<li>label estimation</li>
-<li>unsupervised regularization</li>
+<li>Label estimation</li>
+<li>Unsupervised regularization</li>
 </ul>
-<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><h3 id="Meta-Optimization"><a href="#Meta-Optimization" class="headerlink" title="Meta Optimization"></a>Meta Optimization</h3><p>记：<br>Noised Data: $D_u={(x_i, y_i), 1&lt;i&lt;N}$<br>Probe Data: $D_p={(x_i, y_i), 1&lt;i&lt;M}$</p>
-<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><hr>
+</blockquote>
+<a id="more"></a>
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><p><strong>算法流程</strong>:<br><img src="/2019/10/17/Noisy-Labels/2019-11-15-09-48-10.png" alt="alg"></p>
+<h3 id="Meta-Optimization-based-Reweighting-and-Relabelling"><a href="#Meta-Optimization-based-Reweighting-and-Relabelling" class="headerlink" title="Meta Optimization-based Reweighting and Relabelling"></a>Meta Optimization-based Reweighting and Relabelling</h3><p>记：<br>有噪数据 (Noised Data): $D_u={(x_i, y_i), 1&lt;i&lt;N}$<br>引子数据 (Probe Data): $D_p={(x_i, y_i), 1&lt;i&lt;M}$</p>
+<p>目标神经网络定义为 $\Phi\left(x_{i}; \Theta\right)$, 且 $\Theta$ 是 $\omega$ 的函数.</p>
+<script type="math/tex; mode=display">
+\Theta^{*}(\omega)=\frac{1}{N} \arg \min _{\Theta} \sum_{i=1}^{N} \omega_{i} L\left(y_{i}, \Phi\left(x_{i}; \Theta\right)\right)</script><p>若将 $\omega$ 当成是可学习的参数, 则 Meta-step 步骤可以看成是利用 probe 寻找 $\omega$ 的最优参数, 该 $\omega$ 需满足在 $D_p$ 上具有最优性能. <font size="3" color="red">这里如何构造 probe data 显得尤为重要 </font>.</p>
+<p>求解 $t$ 步的 $\omega$ 即为优化如下损失函数.</p>
+<script type="math/tex; mode=display">
+\omega_{t}^{*}=\arg\min_{\omega} \frac{1}{M} \sum_{i}^{M} L^{p}\left(y_{i}, \Phi\left(x_{i}; \Theta_{t+1}(\omega)\right)\right), s.t. \sum_{j} \omega_{t, j}=1, \omega \geq 0</script><p>最优的 $\omega^*$ 理论上对误标数据的权重分配为 0.</p>
+<p>随着噪声数据比例上升, 大部分数据将会被抛弃. 为了改善信息丢失的问题, 作者提出了伪标签策略. 记伪标签函数估计器为 $g(\Phi(\Theta))$, 那么整合后的目标函数为</p>
+<script type="math/tex; mode=display">
+\Theta^{*}(\omega, \lambda)=\arg\min_{\Theta} \sum_{i=1}^{N} \omega_{i} L \left( \lambda_{i} y_{i}+\left(1-\lambda_{i}\right) g\left(\Phi\left(x_{i}\right), \Phi\left(x ; \Theta_{t+1}\right)\right)\right.</script><p>优化后的 re-labelling 控制器 $\lambda_t^*$ 通过梯度的符号函数进行更新:</p>
+<script type="math/tex; mode=display">
+\lambda_{t, i}^{*}=sign\left(-\frac{\partial}{\partial \lambda_{t, i}} \mathbb{E}\left[ L^p |_{\lambda=\lambda_0, \omega=\omega_0} \right] \right)</script><p>使用梯度的符号函数 $|\nabla \lambda|$ 代替 $\lambda_0 - \nabla \lambda$ 进行更新的原因有二: (1) 当伪标签十分接近真实标签时, $|\nabla \lambda|$ 将会非常小; (2) simply averaging $y_i$ and $g(\Phi(x_i))$ using scalar $\lambda^*$ makes resulting pseudo label distribution less sharp.</p>
+<h3 id="误标数据标记伪标签"><a href="#误标数据标记伪标签" class="headerlink" title="误标数据标记伪标签"></a>误标数据标记伪标签</h3><h4 id="Pseudo-Labels"><a href="#Pseudo-Labels" class="headerlink" title="Pseudo Labels"></a>Pseudo Labels</h4><p>在给定权重 $\omega$ 条件下, 算法通过设定二分类准则 ($\omega_i &lt; T$) 将数据划分为 possibly-mislabeled 和 possibly-clean 两类样本. 作者采用半监督学习方法 <a href="https://arxiv.org/abs/1905.02249" target="_blank" rel="noopener">MixMatch</a> 计算 $g(\Phi(x_i, \Theta))$, 得到 $g_{i}(\Phi(x))=P r_{i}^{\frac{1}{\tau}} / \sum_{i} P r_{i}^{\frac{1}{\tau}}$, 其中 $ Pr= \frac{1}{K}\left(\Phi(x)+\sum_{k}^{K-1} \Phi\left(\hat{x}_{k}\right)\right)$.</p>
+<h4 id="引子数据正则引导"><a href="#引子数据正则引导" class="headerlink" title="引子数据正则引导"></a>引子数据正则引导</h4><p>由于 Probe data 的数据量很小, 在使用时需要防止过拟合. 为此, 作者采用了 $MixUp$ 正则 $ \text{Mix}_\beta (a, b) = \beta a + (1 - \beta) b $. </p>
+<script type="math/tex; mode=display">
+x_{\beta}=\operatorname{Mix}_{\beta}\left(x_{a}, x_{b}\right), y_{\beta}=\operatorname{Mix}_{\beta}\left(y_{a}, y_{b}\right)</script><p>其中 $\left\{\left(x_{a}, y_{a}\right),\left(x_{b}, y_{b}\right) \in D_{p} \cup \hat{D}_{u} \cup D_{u}\right\} $, $\hat{D}_u$ 是 $D_u$ 的增广副本.</p>
+<h4 id="伪标签预测一致性"><a href="#伪标签预测一致性" class="headerlink" title="伪标签预测一致性"></a>伪标签预测一致性</h4><p>作者引入 KL 散度鼓励伪标签具有更强的区分性以保证一致性.</p>
+<script type="math/tex; mode=display">\min _{\Theta} L_{K L}=\frac{1}{\left|D_{u}\right|} \sum_{i=1}^{\left|D_{u}\right|} \operatorname{KL}\left(\Phi\left(x_{i}\right) \| \Phi\left(\hat{x}_{i}\right)\right)</script><h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><hr>
 <h1 id="Learning-to-Reweight-Examples-for-Robust-Deep-Learning"><a href="#Learning-to-Reweight-Examples-for-Robust-Deep-Learning" class="headerlink" title="Learning to Reweight Examples for Robust Deep Learning"></a>Learning to Reweight Examples for Robust Deep Learning</h1><ul>
 <li>authors: Mengye Ren, Wenyuan Zeng, Bin Yang, Raquel Urtasun</li>
 <li>year: 2018</li>
@@ -577,7 +615,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -588,7 +626,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -632,7 +670,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#IEG-Robust-Neural-Network-Training-to-Tackle-Severe-Label-Noise"><span class="nav-number">1.</span> <span class="nav-text">IEG: Robust Neural Network Training to Tackle Severe Label Noise</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Three-Key-Insights"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">Three Key Insights</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Innovation"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">Innovation</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#Methods"><span class="nav-number">1.1.</span> <span class="nav-text">Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Meta-Optimization"><span class="nav-number">1.1.1.</span> <span class="nav-text">Meta Optimization</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Experiments"><span class="nav-number">1.2.</span> <span class="nav-text">Experiments</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Learning-to-Reweight-Examples-for-Robust-Deep-Learning"><span class="nav-number">2.</span> <span class="nav-text">Learning to Reweight Examples for Robust Deep Learning</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#IEG-Robust-Neural-Network-Training-to-Tackle-Severe-Label-Noise"><span class="nav-number">1.</span> <span class="nav-text">IEG: Robust Neural Network Training to Tackle Severe Label Noise</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Methods"><span class="nav-number">1.1.</span> <span class="nav-text">Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Meta-Optimization-based-Reweighting-and-Relabelling"><span class="nav-number">1.1.1.</span> <span class="nav-text">Meta Optimization-based Reweighting and Relabelling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#误标数据标记伪标签"><span class="nav-number">1.1.2.</span> <span class="nav-text">误标数据标记伪标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Pseudo-Labels"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Pseudo Labels</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引子数据正则引导"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">引子数据正则引导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#伪标签预测一致性"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">伪标签预测一致性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Experiments"><span class="nav-number">1.2.</span> <span class="nav-text">Experiments</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Learning-to-Reweight-Examples-for-Robust-Deep-Learning"><span class="nav-number">2.</span> <span class="nav-text">Learning to Reweight Examples for Robust Deep Learning</span></a></li></ol></div>
             
 
           </div>

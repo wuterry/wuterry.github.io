@@ -327,6 +327,186 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/19/Gait-Analysis/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Terry Wu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Terry Wu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/19/Gait-Analysis/" itemprop="url">Gait Analysis</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-19T11:11:00+08:00">
+                2019-11-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Gait-Analysis/" itemprop="url" rel="index">
+                    <span itemprop="name">Gait Analysis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/11/19/Gait-Analysis/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2019/11/19/Gait-Analysis/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>视频监控，法医鉴定， 证据搜集</p>
+<h3 id="技术难点"><a href="#技术难点" class="headerlink" title="技术难点"></a>技术难点</h3><p>步态识别易受到如下因素干扰:</p>
+<ul>
+<li>目标相关的： 行走速度， 服饰， 携带物; </li>
+<li>设备相关的： 相机帧率， 分辨率；</li>
+<li>环境相关的：  相机视角，光照条件等.</li>
+</ul>
+<p>上述干扰因素中，相机视角最棘手。</p>
+<h3 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h3><p><strong>方法分类</strong>: 一种方式按照使用的信息源的不同分成 appearence-based 和 model-based 方法; 另一种是按照数据输入方式不同分成 template-based 和 sequence-based 方法。</p>
+<h4 id="按信息源不同"><a href="#按信息源不同" class="headerlink" title="按信息源不同"></a>按信息源不同</h4><ol>
+<li>appearence-based method<br>这类方法使用平均剪影图（silhouette）提取特征, 代表方法 （GEI, GEnI）.<ul>
+<li>优点：计算复杂度低</li>
+<li>缺点：对服饰、携带物、视角等变化敏感</li>
+</ul>
+</li>
+<li>model-based method<br>该类方法常利用人体关键点提取步态特征.<ul>
+<li>优点：比 Appearence-based 方法更加稳健</li>
+<li>缺点：（1） 更高计算复杂度 （值得商榷，毕竟分割得到剪影图计算量也不低）； （2） 依赖 Pose 估计精度.</li>
+</ul>
+</li>
+</ol>
+<h4 id="按数据处理方式不同"><a href="#按数据处理方式不同" class="headerlink" title="按数据处理方式不同"></a>按数据处理方式不同</h4><ol>
+<li>template-based method<br>该种方法首先获取每一帧的轮廓图，然后生成步态模板，并通过步态模板提取特征，最后通过欧氏距离或者度量学习的方法学习相应的特征表达。</li>
+<li>sequence-based method<br>该类方法直接将一组轮廓图序列作为输入。按照提取时序信息的不同可以分为 LSTM-based 和 3D-CNN 方法。这类方法的优点是能够关注每一个轮廓图，获得更多的空时信息。缺点就是计算量比较大。</li>
+</ol>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/11/19/Gait-Analysis/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/08/Stochastic-Filter-Groups-for-Multi-Task-CNNs-Learning-Specialist-and-Generalist-Convolution-Kernels/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -532,7 +712,18 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Noisy-Labels/" itemprop="url" rel="index">
+                  <a href="/categories/Meta-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Meta Learning</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Meta-Learning/Noisy-Labels/" itemprop="url" rel="index">
                     <span itemprop="name">Noisy Labels</span>
                   </a>
                 </span>
@@ -584,11 +775,25 @@
 <li>authors: Zizhao Zhang, Han Zhang, Sercan Ö. Arık, Honglak Lee, Tomas Pfister (Google AI)</li>
 </ul>
 <p><img src="/2019/10/17/Noisy-Labels/2019-10-17-20-01-34.png" alt="performance"></p>
-<h4 id="Three-Key-Insights"><a href="#Three-Key-Insights" class="headerlink" title="Three Key Insights"></a>Three Key Insights</h4><ul>
+<blockquote>
+<p><strong>Three Key Insights</strong></p>
+<ul>
 <li><strong>Isolation</strong> of noisy labels;</li>
 <li><strong>Escalation</strong> of useful supervision from mislabeled data;</li>
 <li><strong>Guidance</strong> from small trusted data (2‰ trusted data).</li>
 </ul>
+<p><strong>两个问题</strong></p>
+<ol>
+<li>半监督训练中是否有必要抛弃具有噪声标签的数据?</li>
+<li>如何从噪声标签个中提取有效信息?</li>
+</ol>
+<p><strong>创新点</strong></p>
+<ul>
+<li>A meta learning based re-weighting and re-labeling</li>
+<li>Label estimation</li>
+<li>Unsupervised regularization</li>
+</ul>
+</blockquote>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/10/17/Noisy-Labels/#more" rel="contents">
@@ -1763,162 +1968,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/04/YOLOv3-Code-analysis/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Terry Wu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Terry Wu">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/04/YOLOv3-Code-analysis/" itemprop="url">YOLOv3 Code Analysis</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-04T15:27:20+08:00">
-                2019-03-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Detection/" itemprop="url" rel="index">
-                    <span itemprop="name">Detection</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/03/04/YOLOv3-Code-analysis/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2019/03/04/YOLOv3-Code-analysis/" itemprop="commentCount">0</span> comments
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>代码基于 GluonCV 0.4.0 Yolov3.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/04/YOLOv3-Code-analysis/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1969,7 +2018,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1980,7 +2029,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

@@ -186,7 +186,7 @@ th {
 body {
   position: relative;
   font-family: SimHei, Verdana, sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 2;
   color: #555;
   background: #fff;
@@ -203,7 +203,7 @@ body {
 }
 @media (min-width: 1600px) {
   body {
-    font-size: 16px;
+    font-size: 17px;
   }
 }
 h1,
@@ -226,51 +226,51 @@ h6 {
   margin: 20px 0 15px;
 }
 h1 {
-  font-size: 22px;
+  font-size: 23px;
 }
 @media (max-width: 767px) {
   h1 {
-    font-size: 18px;
+    font-size: 19px;
   }
 }
 h2 {
-  font-size: 18px;
+  font-size: 20px;
 }
 @media (max-width: 767px) {
   h2 {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 h3 {
-  font-size: 14px;
+  font-size: 17px;
 }
 @media (max-width: 767px) {
   h3 {
-    font-size: 10px;
+    font-size: 13px;
   }
 }
 h4 {
-  font-size: 10px;
+  font-size: 14px;
 }
 @media (max-width: 767px) {
   h4 {
-    font-size: 6px;
+    font-size: 10px;
   }
 }
 h5 {
-  font-size: 6px;
+  font-size: 11px;
 }
 @media (max-width: 767px) {
   h5 {
-    font-size: 2px;
+    font-size: 7px;
   }
 }
 h6 {
-  font-size: 2px;
+  font-size: 8px;
 }
 @media (max-width: 767px) {
   h6 {
-    font-size: -2px;
+    font-size: 4px;
   }
 }
 p {
@@ -1256,7 +1256,7 @@ pre .javascript .function {
 .post-body .figure .caption {
   margin: -20px auto 15px;
   text-align: center;
-  font-size: 14px;
+  font-size: 15px;
   color: #999;
   font-weight: bold;
   line-height: 1;
@@ -1841,7 +1841,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #6bffbf;
+  background: #9c4091;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2934,12 +2934,12 @@ hr {
 }
 @media (max-width: 767px) {
   .posts-expand .post-title {
-    font-size: 20px;
+    font-size: 25px;
   }
 }
 @media (min-width: 1600px) {
   .posts-expand .post-title {
-    font-size: 28px;
+    font-size: 31px;
   }
 }
 .posts-expand .post-title:hover:before {
@@ -2947,7 +2947,7 @@ hr {
 }
 @media (max-width: 767px) {
   .posts-expand .post-body {
-    font-size: 12px;
+    font-size: 13px;
   }
 }
 .posts-expand .post-body img {
@@ -2973,7 +2973,7 @@ hr {
 }
 .post-button a {
   padding: 0;
-  font-size: 14px;
+  font-size: 15px;
   background: none;
   border: none;
   border-bottom: 2px solid #666;
@@ -2981,12 +2981,12 @@ hr {
 }
 @media (max-width: 767px) {
   .post-button a {
-    font-size: 12px;
+    font-size: 13px;
   }
 }
 @media (min-width: 1600px) {
   .post-button a {
-    font-size: 16px;
+    font-size: 17px;
   }
 }
 .post-button a:hover {
